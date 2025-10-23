@@ -1,0 +1,43 @@
+srcscan starts
+=============== Using precompiled files for SV std libs ===========
+INFO: The Verilog library search path for library "std" is now "C:/Xilinx/Vivado/2023.2/data/precomp_hsv/sv/std" (VERI-1509)
+INFO: The Verilog library search path for library "uvm" is now "C:/Xilinx/Vivado/2023.2/data/precomp_hsv/sv/uvm" (VERI-1509)
+INFO: analyzing module AS2_ATS (VERI-9002)
+C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/AS2_ATS.sv(63): ERROR: 'mode_t' is not declared (VERI-1128)
+INFO: analyzing module ATS_main (VERI-9002)
+INFO: analyzing module fifo (VERI-9002)
+INFO: analyzing module fifo_1 (VERI-9002)
+C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fifo_1.sv(36): INFO: undeclared symbol 'pop', assumed default net type 'wire' (VERI-2561)
+C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fifo_1.sv(37): INFO: undeclared symbol 'push', assumed default net type 'wire' (VERI-2561)
+INFO: analyzing module fixed_point_linear (VERI-9002)
+INFO: analyzing module parallel_DAC (VERI-9002)
+INFO: analyzing module parallel_DAC_controller (VERI-9002)
+INFO: analyzing module parallel_DAC_tb (VERI-9002)
+INFO: analyzing module signal_delay (VERI-9002)
+INFO: analyzing module spi_controller (VERI-9002)
+INFO: analyzing module tb_bram (VERI-9002)
+C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sim_1/new/tb_bram.sv(125): WARNING: cannot omit port direction for function/task declarations (VERI-9024)
+INFO: analyzing module top (VERI-9002)
+C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/top.sv(130): INFO: undeclared symbol 'OTG_RESETN', assumed default net type 'wire' (VERI-2561)
+INFO: analyzing module true_dual_port (VERI-9002)
+Listing tops:
+VeriTop library:xil_defaultlib mod:AS2_ATS
+VeriTop library:xil_defaultlib mod:parallel_DAC
+VeriTop library:xil_defaultlib mod:parallel_DAC_tb
+VeriTop library:xil_defaultlib mod:tb_bram
+END of tops
+C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/AS2_ATS.sv(3): INFO: compiling module 'AS2_ATS_default' (VERI-1018)
+C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/parallel_DAC.sv(3): INFO: compiling module 'parallel_DAC_default' (VERI-1018)
+C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sim_1/new/parallel_DAC_tb.sv(3): INFO: compiling module 'parallel_DAC_tb_default' (VERI-1018)
+C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sim_1/new/tb_bram.sv(23): INFO: compiling module 'tb_bram_default' (VERI-1018)
+C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sim_1/new/parallel_DAC_tb.sv(50): ERROR: cannot find port 'OTG_RESETN' on this module (VERI-1010)
+C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/top.sv(3): INFO: 'top' is declared here (VERI-9035)
+C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sim_1/new/parallel_DAC_tb.sv(49): ERROR: cannot find port 'GCLK' on this module (VERI-1010)
+C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/top.sv(3): INFO: 'top' is declared here (VERI-9035)
+C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/AS2_ATS.sv(63): ERROR: 'mode_t' is not declared (VERI-1128)
+C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/AS2_ATS.sv(136): WARNING: port 'clk' is not connected on this instance (VERI-2435)
+ModName: fifo_1(DATA_WIDTH=32)
+ModName: signal_delay(WIDTH=64,N=5)
+BaseName fifo_1 has 1 entries
+BaseName signal_delay has 1 entries
+srcscan exits with return value 0

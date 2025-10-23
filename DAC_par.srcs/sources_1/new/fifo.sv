@@ -26,7 +26,7 @@ module fifo #(
     assign empty = (count == 0);
     
     assign m_axis_tready = !full;  
-    assign s_axis_tvalid = (!empty);
+    assign valid = (!empty);
     
     always_ff @(posedge clk or negedge reset_n) begin
         if (!reset_n) begin
@@ -43,12 +43,14 @@ module fifo #(
                 wr_ptr <= (wr_ptr == DEPTH-1) ? 0 : wr_ptr + 1;
             end
             
-            if (s_axis_tvalid && s_axis_tready ) begin
+            if (valid && s_axis_tready ) begin
                 s_axis_tdata <= mem[rd_ptr];
+                s_axis_tvalid <= valid;
                 rd_ptr <= (rd_ptr == DEPTH-1) ? 0 : rd_ptr + 1;
 
-            end
-            case ({m_axis_tvalid && m_axis_tready, s_axis_tvalid && s_axis_tready})
+            end else s_axis_tvalid <= 1'b0;
+            
+            case ({m_axis_tvalid && m_axis_tready, valid && s_axis_tready})
                 2'b01: count <= count - 1;  // Only read
                 2'b10: count <= count + 1;  // Only write
                 2'b11: count <= count;      // Simultaneous read and write

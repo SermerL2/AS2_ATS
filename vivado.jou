@@ -1,0 +1,43 @@
+#-----------------------------------------------------------
+# Vivado v2023.2.2 (64-bit)
+# SW Build 4126759 on Thu Feb  8 23:53:51 MST 2024
+# IP Build 4126054 on Fri Feb  9 11:39:09 MST 2024
+# SharedData Build 4115275 on Tue Jan 30 00:40:57 MST 2024
+# Start of session at: Wed Oct 22 16:14:44 2025
+# Process ID: 7340
+# Current directory: C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent14764 C:\projects\Vivado_Projects\AD9777_with_mult-main\AD9777_with_mult-main\DAC_par.xpr
+# Log file: C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/vivado.log
+# Journal file: C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main\vivado.jou
+# Running On: DESKTOP-630779O, OS: Windows, CPU Frequency: 3000 MHz, CPU Physical cores: 4, Host memory: 8392 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.xpr
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+close [ open C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/AS2_ATS.sv w ]
+add_files C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/AS2_ATS.sv
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top AS2_ATS [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+add_files -norecurse {C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/spi_controller.sv C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/parallel_DAC_controller.sv}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+add_files -norecurse {C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/ATS_main.sv C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/signal_delay.sv}
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+add_files -norecurse C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fifo_1.sv
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+refresh_design
+update_compile_order -fileset sources_1
+set_property source_mgmt_mode DisplayOnly [current_project]
+refresh_design
+refresh_design

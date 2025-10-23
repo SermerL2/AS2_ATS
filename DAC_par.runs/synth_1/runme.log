@@ -1,10 +1,10 @@
 
 *** Running vivado
-    with args -log top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+    with args -log AS2_ATS.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source AS2_ATS.tcl
 
 
-Режим вывода команд на экран (ECHO) отключен.
-Режим вывода команд на экран (ECHO) отключен.
+ECHO is off.
+ECHO is off.
 
 ****** Vivado v2023.2.2 (64-bit)
   **** SW Build 4126759 on Thu Feb  8 23:53:51 MST 2024
@@ -15,15 +15,18 @@
 
 Sourcing tcl script 'C:/Xilinx/Vivado/2023.2/scripts/Vivado_init.tcl'
 0 Beta devices matching pattern found, 0 enabled.
-enable_beta_device: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 430.914 ; gain = 159.902
-source top.tcl -notrace
+enable_beta_device: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 429.582 ; gain = 162.238
+source AS2_ATS.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Vivado_Projects/ip_repo/parallel_DAC_lite_1_0'.
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'c:/projects/Vivado_Projects/AD9777_with_mult-main/ip_repo/parallel_DAC_lite_1_0'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2023.2/data/ip'.
-Command: read_checkpoint -auto_incremental -incremental C:/Vivado_Projects/DAC_par/DAC_par.srcs/utils_1/imports/synth_1/parallel_DAC.dcp
-INFO: [Vivado 12-5825] Read reference checkpoint from C:/Vivado_Projects/DAC_par/DAC_par.srcs/utils_1/imports/synth_1/parallel_DAC.dcp for incremental synthesis
+WARNING: [IP_Flow 19-4995] The host OS only allows 260 characters in a normal path. The IP cache path is more than 80 characters. If you experience issues with IP caching, please consider changing the IP cache to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. 
+Current IP cache path is c:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.cache/ip 
+Command: read_checkpoint -auto_incremental -incremental C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/utils_1/imports/synth_1/parallel_DAC.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/utils_1/imports/synth_1/parallel_DAC.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
-Command: synth_design -top top -part xc7z020clg484-1
+Command: synth_design -top AS2_ATS -part xc7z020clg484-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
@@ -32,127 +35,235 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 6980
+INFO: [Synth 8-7075] Helper process launched with PID 14496
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1328.840 ; gain = 442.176
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 1328.137 ; gain = 441.848
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'top' [C:/Vivado_Projects/DAC_par/DAC_par.srcs/sources_1/new/top.sv:3]
-INFO: [Synth 8-6157] synthesizing module 'parallel_DAC' [C:/Vivado_Projects/DAC_par/DAC_par.srcs/sources_1/new/parallel_DAC.sv:3]
-	Parameter FIFO_DEPTH bound to: 16 - type: integer 
-	Parameter DATA_WIDTH bound to: 32 - type: integer 
-	Parameter START_NUMBER bound to: 0 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'parallel_DAC' (0#1) [C:/Vivado_Projects/DAC_par/DAC_par.srcs/sources_1/new/parallel_DAC.sv:3]
-INFO: [Synth 8-6157] synthesizing module 'fifo' [C:/Vivado_Projects/DAC_par/DAC_par.srcs/sources_1/new/fifo.sv:1]
+INFO: [Synth 8-11241] undeclared symbol 'valid', assumed default net type 'wire' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fifo.sv:29]
+INFO: [Synth 8-11241] undeclared symbol 'pop', assumed default net type 'wire' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fifo_1.sv:36]
+INFO: [Synth 8-11241] undeclared symbol 'push', assumed default net type 'wire' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fifo_1.sv:37]
+INFO: [Synth 8-6157] synthesizing module 'AS2_ATS' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/AS2_ATS.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'spi_controller' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/spi_controller.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'spi_controller' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/spi_controller.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'parallel_DAC_controller' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/parallel_DAC_controller.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'parallel_DAC_controller' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/parallel_DAC_controller.sv:3]
+WARNING: [Synth 8-7071] port 'ready' of module 'parallel_DAC_controller' is unconnected for instance 'pDACc' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/AS2_ATS.sv:114]
+WARNING: [Synth 8-7023] instance 'pDACc' of module 'parallel_DAC_controller' has 11 connections declared, but only 10 given [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/AS2_ATS.sv:114]
+INFO: [Synth 8-6157] synthesizing module 'top' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/top.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'fifo' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fifo.sv:1]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
 	Parameter DEPTH bound to: 16 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'fifo' (0#1) [C:/Vivado_Projects/DAC_par/DAC_par.srcs/sources_1/new/fifo.sv:1]
-INFO: [Synth 8-6157] synthesizing module 'fixed_point_linear' [C:/Vivado_Projects/DAC_par/DAC_par.srcs/sources_1/new/fixed_point_linear.sv:1]
-INFO: [Synth 8-6155] done synthesizing module 'fixed_point_linear' (0#1) [C:/Vivado_Projects/DAC_par/DAC_par.srcs/sources_1/new/fixed_point_linear.sv:1]
-INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [C:/Vivado_Projects/DAC_par/DAC_par.srcs/sources_1/new/top.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'fifo' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fifo.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'fixed_point_linear' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fixed_point_linear.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'fixed_point_linear' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fixed_point_linear.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/top.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'ATS_main' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/ATS_main.sv:8]
+WARNING: [Synth 8-6090] variable 'valid_save' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/ATS_main.sv:108]
+WARNING: [Synth 8-6090] variable 'valid_save' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/ATS_main.sv:116]
+WARNING: [Synth 8-6090] variable 'valid_save' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/ATS_main.sv:129]
+WARNING: [Synth 8-6090] variable 'valid_save' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/ATS_main.sv:137]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/ATS_main.sv:100]
+INFO: [Synth 8-6157] synthesizing module 'fixed_point_linear__parameterized0' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fixed_point_linear.sv:1]
+	Parameter INTEGER_W bound to: 16 - type: integer 
+	Parameter FRACTIONAL_W bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'fixed_point_linear__parameterized0' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fixed_point_linear.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'signal_delay' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/signal_delay.sv:1]
+	Parameter WIDTH bound to: 32'sb00000000000000000000000001000000 
+	Parameter N bound to: 32'sb00000000000000000000000000000101 
+INFO: [Synth 8-6155] done synthesizing module 'signal_delay' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/signal_delay.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'fifo_1' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fifo_1.sv:2]
+	Parameter DATA_WIDTH bound to: 32'sb00000000000000000000000000100000 
+	Parameter DEPTH bound to: 32'sb00000000000000000000000000001010 
+INFO: [Synth 8-6155] done synthesizing module 'fifo_1' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fifo_1.sv:2]
+INFO: [Synth 8-6155] done synthesizing module 'ATS_main' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/ATS_main.sv:8]
+INFO: [Synth 8-6155] done synthesizing module 'AS2_ATS' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/AS2_ATS.sv:3]
+WARNING: [Synth 8-3848] Net ready in module/entity parallel_DAC_controller does not have driver. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/parallel_DAC_controller.sv:13]
 WARNING: [Synth 8-7137] Register mem_reg in module fifo has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code 
+WARNING: [Synth 8-7137] Register s_axis_tvalid_reg in module fifo has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fifo.sv:48]
 WARNING: [Synth 8-4767] Trying to implement RAM 'mem_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
 Reason is one or more of the following :
 	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
 RAM "mem_reg" dissolved into registers
-WARNING: [Synth 8-6014] Unused sequential element addition_reg was removed.  [C:/Vivado_Projects/DAC_par/DAC_par.srcs/sources_1/new/fixed_point_linear.sv:106]
-WARNING: [Synth 8-6014] Unused sequential element max_positive_reg was removed.  [C:/Vivado_Projects/DAC_par/DAC_par.srcs/sources_1/new/fixed_point_linear.sv:108]
-WARNING: [Synth 8-6014] Unused sequential element max_negative_reg was removed.  [C:/Vivado_Projects/DAC_par/DAC_par.srcs/sources_1/new/fixed_point_linear.sv:109]
-WARNING: [Synth 8-3848] Net AS2_r in module/entity top does not have driver. [C:/Vivado_Projects/DAC_par/DAC_par.srcs/sources_1/new/top.sv:29]
-WARNING: [Synth 8-3848] Net JC3_N in module/entity top does not have driver. [C:/Vivado_Projects/DAC_par/DAC_par.srcs/sources_1/new/top.sv:53]
-WARNING: [Synth 8-3848] Net JC4_P in module/entity top does not have driver. [C:/Vivado_Projects/DAC_par/DAC_par.srcs/sources_1/new/top.sv:56]
-WARNING: [Synth 8-3917] design top has port JC1_P driven by constant 0
-WARNING: [Synth 8-7129] Port in_sdo in module parallel_DAC is either unconnected or has no load
-WARNING: [Synth 8-7129] Port AS2_r in module top is either unconnected or has no load
-WARNING: [Synth 8-7129] Port JC3_N in module top is either unconnected or has no load
-WARNING: [Synth 8-7129] Port JC4_P in module top is either unconnected or has no load
+WARNING: [Synth 8-6014] Unused sequential element addition_reg was removed.  [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fixed_point_linear.sv:106]
+WARNING: [Synth 8-6014] Unused sequential element max_positive_reg was removed.  [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fixed_point_linear.sv:108]
+WARNING: [Synth 8-6014] Unused sequential element max_negative_reg was removed.  [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fixed_point_linear.sv:109]
+WARNING: [Synth 8-6014] Unused sequential element addition_reg was removed.  [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fixed_point_linear.sv:106]
+WARNING: [Synth 8-6014] Unused sequential element max_positive_reg was removed.  [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fixed_point_linear.sv:108]
+WARNING: [Synth 8-6014] Unused sequential element max_negative_reg was removed.  [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fixed_point_linear.sv:109]
+WARNING: [Synth 8-7129] Port ready in module parallel_DAC_controller is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1440.984 ; gain = 554.320
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1445.879 ; gain = 559.590
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1440.984 ; gain = 554.320
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1445.879 ; gain = 559.590
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1440.984 ; gain = 554.320
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1445.879 ; gain = 559.590
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 1440.984 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.069 . Memory (MB): peak = 1445.879 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Vivado_Projects/DAC_par/DAC_par.srcs/constrs_1/new/XDC.xdc]
-WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 33]]'. [C:/Vivado_Projects/DAC_par/DAC_par.srcs/constrs_1/new/XDC.xdc:362]
-WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 34]]'. [C:/Vivado_Projects/DAC_par/DAC_par.srcs/constrs_1/new/XDC.xdc:367]
-WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 35]]'. [C:/Vivado_Projects/DAC_par/DAC_par.srcs/constrs_1/new/XDC.xdc:372]
-WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 13]]'. [C:/Vivado_Projects/DAC_par/DAC_par.srcs/constrs_1/new/XDC.xdc:375]
-Finished Parsing XDC File [C:/Vivado_Projects/DAC_par/DAC_par.srcs/constrs_1/new/XDC.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Vivado_Projects/DAC_par/DAC_par.srcs/constrs_1/new/XDC.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
-Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc]
+WARNING: [Vivado 12-584] No ports matched 'GCLK'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:82]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:82]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JA1'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:87]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:87]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JA10'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:88]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:88]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JA2'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:89]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:89]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JA3'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:90]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:90]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JA4'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:91]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:91]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JA7'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:92]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:92]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JA8'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:93]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:93]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JA9'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:94]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:94]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JB1'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:100]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:100]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JB2'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:101]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:101]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JB3'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:102]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:102]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JB4'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:103]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:103]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JB7'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:104]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:104]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JB8'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:105]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:105]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JB9'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:106]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:106]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JB10'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:107]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:107]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JC1_N'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:112]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:112]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JC1_P'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:113]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:113]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JC2_N'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:114]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:114]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JC2_P'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:115]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:115]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JC3_N'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:116]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:116]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JC3_P'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:117]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:117]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JC4_N'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:118]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:118]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'JC4_P'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:119]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:119]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'OTG_RESETN'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:232]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:232]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 33]]'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:362]
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 34]]'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:367]
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 35]]'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:372]
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 13]]'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:375]
+Finished Parsing XDC File [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/AS2_ATS_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/AS2_ATS_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1541.723 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1543.535 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Системе не удается найти указанный путь.
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1541.723 ; gain = 0.000
+The system cannot find the path specified.
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1543.535 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1541.723 ; gain = 655.059
+Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1543.535 ; gain = 657.246
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1541.723 ; gain = 655.059
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1543.535 ; gain = 657.246
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1541.723 ; gain = 655.059
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1543.535 ; gain = 657.246
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1541.723 ; gain = 655.059
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1543.535 ; gain = 657.246
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input   64 Bit       Adders := 2     
+	   2 Input   64 Bit       Adders := 4     
 	   2 Input    5 Bit       Adders := 3     
-	   2 Input    4 Bit       Adders := 2     
+	   2 Input    4 Bit       Adders := 4     
 	   2 Input    3 Bit       Adders := 1     
 	   2 Input    2 Bit       Adders := 1     
 +---Registers : 
-	               64 Bit    Registers := 4     
-	               32 Bit    Registers := 32    
-	               16 Bit    Registers := 2     
+	               64 Bit    Registers := 14    
+	               32 Bit    Registers := 45    
+	               16 Bit    Registers := 3     
 	                8 Bit    Registers := 1     
 	                6 Bit    Registers := 1     
 	                5 Bit    Registers := 1     
-	                4 Bit    Registers := 3     
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 21    
+	                4 Bit    Registers := 6     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 44    
 +---Multipliers : 
-	              32x32  Multipliers := 2     
+	              32x32  Multipliers := 4     
++---RAMs : 
+	              320 Bit	(10 X 32 bit)          RAMs := 1     
 +---Muxes : 
-	   5 Input   32 Bit        Muxes := 2     
-	   2 Input   32 Bit        Muxes := 10    
-	   2 Input   16 Bit        Muxes := 1     
+	   2 Input   64 Bit        Muxes := 3     
+	   4 Input   64 Bit        Muxes := 1     
+	   5 Input   32 Bit        Muxes := 4     
+	   2 Input   32 Bit        Muxes := 23    
+	   4 Input   32 Bit        Muxes := 3     
+	   2 Input   16 Bit        Muxes := 2     
 	   2 Input    5 Bit        Muxes := 3     
-	   2 Input    4 Bit        Muxes := 2     
+	   2 Input    4 Bit        Muxes := 11    
+	   4 Input    4 Bit        Muxes := 2     
+	   3 Input    3 Bit        Muxes := 1     
 	   2 Input    3 Bit        Muxes := 1     
 	   2 Input    2 Bit        Muxes := 1     
 	   4 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 36    
-	   3 Input    1 Bit        Muxes := 2     
-	   4 Input    1 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 83    
+	   4 Input    1 Bit        Muxes := 12    
+	   3 Input    1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -169,176 +280,267 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-DSP Report: Generating DSP multiplication0, operation Mode is: A2*B.
-DSP Report: register multiplication0 is absorbed into DSP multiplication0.
-DSP Report: operator multiplication0 is absorbed into DSP multiplication0.
-DSP Report: operator multiplication0 is absorbed into DSP multiplication0.
-DSP Report: Generating DSP multiplication_reg_reg, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: register multiplication_reg_reg is absorbed into DSP multiplication_reg_reg.
-DSP Report: operator multiplication0 is absorbed into DSP multiplication_reg_reg.
-DSP Report: operator multiplication0 is absorbed into DSP multiplication_reg_reg.
-DSP Report: Generating DSP multiplication0, operation Mode is: A2*B2.
-DSP Report: register multiplication0 is absorbed into DSP multiplication0.
-DSP Report: register multiplication0 is absorbed into DSP multiplication0.
-DSP Report: operator multiplication0 is absorbed into DSP multiplication0.
-DSP Report: operator multiplication0 is absorbed into DSP multiplication0.
-DSP Report: Generating DSP multiplication_reg_reg, operation Mode is: (PCIN>>17)+A2*B.
-DSP Report: register multiplication_reg_reg is absorbed into DSP multiplication_reg_reg.
-DSP Report: register multiplication_reg_reg is absorbed into DSP multiplication_reg_reg.
-DSP Report: operator multiplication0 is absorbed into DSP multiplication_reg_reg.
-DSP Report: operator multiplication0 is absorbed into DSP multiplication_reg_reg.
-DSP Report: Generating DSP multiplication0, operation Mode is: A2*B.
-DSP Report: register multiplication0 is absorbed into DSP multiplication0.
-DSP Report: operator multiplication0 is absorbed into DSP multiplication0.
-DSP Report: operator multiplication0 is absorbed into DSP multiplication0.
-DSP Report: Generating DSP multiplication_reg_reg, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: register multiplication_reg_reg is absorbed into DSP multiplication_reg_reg.
-DSP Report: operator multiplication0 is absorbed into DSP multiplication_reg_reg.
-DSP Report: operator multiplication0 is absorbed into DSP multiplication_reg_reg.
-DSP Report: Generating DSP multiplication0, operation Mode is: A2*B2.
-DSP Report: register multiplication0 is absorbed into DSP multiplication0.
-DSP Report: register multiplication0 is absorbed into DSP multiplication0.
-DSP Report: operator multiplication0 is absorbed into DSP multiplication0.
-DSP Report: operator multiplication0 is absorbed into DSP multiplication0.
-DSP Report: Generating DSP multiplication_reg_reg, operation Mode is: (PCIN>>17)+A2*B.
-DSP Report: register multiplication_reg_reg is absorbed into DSP multiplication_reg_reg.
-DSP Report: register multiplication_reg_reg is absorbed into DSP multiplication_reg_reg.
-DSP Report: operator multiplication0 is absorbed into DSP multiplication_reg_reg.
-DSP Report: operator multiplication0 is absorbed into DSP multiplication_reg_reg.
-WARNING: [Synth 8-3917] design top has port JC1_P driven by constant 0
-WARNING: [Synth 8-7129] Port in_sdo in module parallel_DAC is either unconnected or has no load
-WARNING: [Synth 8-7129] Port AS2_r in module top is either unconnected or has no load
-WARNING: [Synth 8-7129] Port JC3_N in module top is either unconnected or has no load
-WARNING: [Synth 8-7129] Port JC4_P in module top is either unconnected or has no load
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[47]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[46]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[45]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[44]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[43]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[42]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[41]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[40]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[39]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[38]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[37]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[36]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[35]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[34]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[33]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[32]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[31]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[30]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[29]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[28]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[27]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[26]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[25]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[24]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[23]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[22]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[21]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[20]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[19]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[18]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[17]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[47]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[46]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[45]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[44]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[43]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[42]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[41]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[40]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[39]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[38]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[37]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[36]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[35]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[34]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[33]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[32]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[31]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[30]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[29]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[28]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[27]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[26]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[25]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[24]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[23]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[22]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[21]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[20]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[19]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[18]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[17]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[15]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[14]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[13]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[12]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[11]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[10]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[9]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[8]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[7]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[6]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[5]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[4]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[3]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[2]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[1]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_u/multiplication_reg_reg[0]__0) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_code/multiplication_reg_reg[47]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_code/multiplication_reg_reg[46]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_code/multiplication_reg_reg[45]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_code/multiplication_reg_reg[44]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_code/multiplication_reg_reg[43]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_code/multiplication_reg_reg[42]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_code/multiplication_reg_reg[41]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_code/multiplication_reg_reg[40]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_code/multiplication_reg_reg[39]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_code/multiplication_reg_reg[38]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_code/multiplication_reg_reg[37]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_code/multiplication_reg_reg[36]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_code/multiplication_reg_reg[35]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_code/multiplication_reg_reg[34]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_code/multiplication_reg_reg[33]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_code/multiplication_reg_reg[32]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_code/multiplication_reg_reg[31]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_code/multiplication_reg_reg[30]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_code/multiplication_reg_reg[29]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_code/multiplication_reg_reg[28]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_code/multiplication_reg_reg[27]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (mult_code/multiplication_reg_reg[26]) is unused and will be removed from module top.
+DSP Report: Generating DSP mult_u/multiplication0, operation Mode is: A2*B2.
+DSP Report: register mult_u/value_og_reg_reg is absorbed into DSP mult_u/multiplication0.
+DSP Report: register mult_u/multiplication0 is absorbed into DSP mult_u/multiplication0.
+DSP Report: operator mult_u/multiplication0 is absorbed into DSP mult_u/multiplication0.
+DSP Report: operator mult_u/multiplication0 is absorbed into DSP mult_u/multiplication0.
+DSP Report: Generating DSP mult_u/multiplication_reg_reg, operation Mode is: (PCIN>>17)+A2*B2.
+DSP Report: register mult_u/k_reg_reg is absorbed into DSP mult_u/multiplication_reg_reg.
+DSP Report: register mult_u/value_og_reg_reg is absorbed into DSP mult_u/multiplication_reg_reg.
+DSP Report: register mult_u/multiplication_reg_reg is absorbed into DSP mult_u/multiplication_reg_reg.
+DSP Report: operator mult_u/multiplication0 is absorbed into DSP mult_u/multiplication_reg_reg.
+DSP Report: operator mult_u/multiplication0 is absorbed into DSP mult_u/multiplication_reg_reg.
+DSP Report: Generating DSP mult_u/multiplication0, operation Mode is: A2*B2.
+DSP Report: register mult_u/multiplication0 is absorbed into DSP mult_u/multiplication0.
+DSP Report: register mult_u/multiplication0 is absorbed into DSP mult_u/multiplication0.
+DSP Report: operator mult_u/multiplication0 is absorbed into DSP mult_u/multiplication0.
+DSP Report: operator mult_u/multiplication0 is absorbed into DSP mult_u/multiplication0.
+DSP Report: Generating DSP mult_u/multiplication_reg_reg, operation Mode is: (PCIN>>17)+A2*B2.
+DSP Report: register mult_u/k_reg_reg is absorbed into DSP mult_u/multiplication_reg_reg.
+DSP Report: register mult_u/multiplication_reg_reg is absorbed into DSP mult_u/multiplication_reg_reg.
+DSP Report: register mult_u/multiplication_reg_reg is absorbed into DSP mult_u/multiplication_reg_reg.
+DSP Report: operator mult_u/multiplication0 is absorbed into DSP mult_u/multiplication_reg_reg.
+DSP Report: operator mult_u/multiplication0 is absorbed into DSP mult_u/multiplication_reg_reg.
+DSP Report: Generating DSP mult_code/multiplication0, operation Mode is: A2*B''.
+DSP Report: register mult_u/value_out_reg is absorbed into DSP mult_code/multiplication0.
+DSP Report: register mult_code/value_og_reg_reg is absorbed into DSP mult_code/multiplication0.
+DSP Report: register mult_code/multiplication0 is absorbed into DSP mult_code/multiplication0.
+DSP Report: operator mult_code/multiplication0 is absorbed into DSP mult_code/multiplication0.
+DSP Report: operator mult_code/multiplication0 is absorbed into DSP mult_code/multiplication0.
+DSP Report: Generating DSP mult_code/multiplication_reg_reg, operation Mode is: (PCIN>>17)+A''*B2.
+DSP Report: register mult_code/k_reg_reg is absorbed into DSP mult_code/multiplication_reg_reg.
+DSP Report: register mult_u/value_out_reg is absorbed into DSP mult_code/multiplication_reg_reg.
+DSP Report: register mult_code/value_og_reg_reg is absorbed into DSP mult_code/multiplication_reg_reg.
+DSP Report: register mult_code/multiplication_reg_reg is absorbed into DSP mult_code/multiplication_reg_reg.
+DSP Report: operator mult_code/multiplication0 is absorbed into DSP mult_code/multiplication_reg_reg.
+DSP Report: operator mult_code/multiplication0 is absorbed into DSP mult_code/multiplication_reg_reg.
+DSP Report: Generating DSP mult_code/multiplication0, operation Mode is: A''*B2.
+DSP Report: register mult_code/multiplication0 is absorbed into DSP mult_code/multiplication0.
+DSP Report: register mult_code/multiplication0 is absorbed into DSP mult_code/multiplication0.
+DSP Report: register mult_code/multiplication0 is absorbed into DSP mult_code/multiplication0.
+DSP Report: operator mult_code/multiplication0 is absorbed into DSP mult_code/multiplication0.
+DSP Report: operator mult_code/multiplication0 is absorbed into DSP mult_code/multiplication0.
+DSP Report: Generating DSP mult_code/multiplication_reg_reg, operation Mode is: (PCIN>>17)+A''*B2.
+DSP Report: register mult_code/k_reg_reg is absorbed into DSP mult_code/multiplication_reg_reg.
+DSP Report: register mult_code/multiplication_reg_reg is absorbed into DSP mult_code/multiplication_reg_reg.
+DSP Report: register mult_code/multiplication_reg_reg is absorbed into DSP mult_code/multiplication_reg_reg.
+DSP Report: register mult_code/multiplication_reg_reg is absorbed into DSP mult_code/multiplication_reg_reg.
+DSP Report: operator mult_code/multiplication0 is absorbed into DSP mult_code/multiplication_reg_reg.
+DSP Report: operator mult_code/multiplication0 is absorbed into DSP mult_code/multiplication_reg_reg.
+DSP Report: Generating DSP fpl_stage_1/multiplication0, operation Mode is: A''*B''.
+DSP Report: register value_nm_voltage_reg is absorbed into DSP fpl_stage_1/multiplication0.
+DSP Report: register fpl_stage_1/value_og_reg_reg is absorbed into DSP fpl_stage_1/multiplication0.
+DSP Report: register fpl_stage_1/multiplication0 is absorbed into DSP fpl_stage_1/multiplication0.
+DSP Report: register fpl_stage_1/multiplication0 is absorbed into DSP fpl_stage_1/multiplication0.
+DSP Report: operator fpl_stage_1/multiplication0 is absorbed into DSP fpl_stage_1/multiplication0.
+DSP Report: operator fpl_stage_1/multiplication0 is absorbed into DSP fpl_stage_1/multiplication0.
+DSP Report: Generating DSP fpl_stage_1/multiplication_reg_reg, operation Mode is: (PCIN>>17)+A''*B''.
+DSP Report: register k_nm_voltage_reg is absorbed into DSP fpl_stage_1/multiplication_reg_reg.
+DSP Report: register fpl_stage_1/k_reg_reg is absorbed into DSP fpl_stage_1/multiplication_reg_reg.
+DSP Report: register value_nm_voltage_reg is absorbed into DSP fpl_stage_1/multiplication_reg_reg.
+DSP Report: register fpl_stage_1/value_og_reg_reg is absorbed into DSP fpl_stage_1/multiplication_reg_reg.
+DSP Report: register fpl_stage_1/multiplication_reg_reg is absorbed into DSP fpl_stage_1/multiplication_reg_reg.
+DSP Report: operator fpl_stage_1/multiplication0 is absorbed into DSP fpl_stage_1/multiplication_reg_reg.
+DSP Report: operator fpl_stage_1/multiplication0 is absorbed into DSP fpl_stage_1/multiplication_reg_reg.
+DSP Report: Generating DSP fpl_stage_1/multiplication0, operation Mode is: A''*B''.
+DSP Report: register fpl_stage_1/multiplication0 is absorbed into DSP fpl_stage_1/multiplication0.
+DSP Report: register fpl_stage_1/multiplication0 is absorbed into DSP fpl_stage_1/multiplication0.
+DSP Report: register fpl_stage_1/multiplication0 is absorbed into DSP fpl_stage_1/multiplication0.
+DSP Report: register fpl_stage_1/multiplication0 is absorbed into DSP fpl_stage_1/multiplication0.
+DSP Report: operator fpl_stage_1/multiplication0 is absorbed into DSP fpl_stage_1/multiplication0.
+DSP Report: operator fpl_stage_1/multiplication0 is absorbed into DSP fpl_stage_1/multiplication0.
+DSP Report: Generating DSP fpl_stage_1/multiplication_reg_reg, operation Mode is: (PCIN>>17)+A''*B''.
+DSP Report: register k_nm_voltage_reg is absorbed into DSP fpl_stage_1/multiplication_reg_reg.
+DSP Report: register fpl_stage_1/k_reg_reg is absorbed into DSP fpl_stage_1/multiplication_reg_reg.
+DSP Report: register fpl_stage_1/multiplication_reg_reg is absorbed into DSP fpl_stage_1/multiplication_reg_reg.
+DSP Report: register fpl_stage_1/multiplication_reg_reg is absorbed into DSP fpl_stage_1/multiplication_reg_reg.
+DSP Report: register fpl_stage_1/multiplication_reg_reg is absorbed into DSP fpl_stage_1/multiplication_reg_reg.
+DSP Report: operator fpl_stage_1/multiplication0 is absorbed into DSP fpl_stage_1/multiplication_reg_reg.
+DSP Report: operator fpl_stage_1/multiplication0 is absorbed into DSP fpl_stage_1/multiplication_reg_reg.
+DSP Report: Generating DSP fpl_stage_2/multiplication0, operation Mode is: A2*B''.
+DSP Report: register fpl_stage_1/value_out_reg is absorbed into DSP fpl_stage_2/multiplication0.
+DSP Report: register fpl_stage_2/value_og_reg_reg is absorbed into DSP fpl_stage_2/multiplication0.
+DSP Report: register fpl_stage_2/multiplication0 is absorbed into DSP fpl_stage_2/multiplication0.
+DSP Report: operator fpl_stage_2/multiplication0 is absorbed into DSP fpl_stage_2/multiplication0.
+DSP Report: operator fpl_stage_2/multiplication0 is absorbed into DSP fpl_stage_2/multiplication0.
+DSP Report: Generating DSP fpl_stage_2/multiplication_reg_reg, operation Mode is: (PCIN>>17)+A''*B2.
+DSP Report: register fpl_stage_2/k_reg_reg is absorbed into DSP fpl_stage_2/multiplication_reg_reg.
+DSP Report: register fpl_stage_1/value_out_reg is absorbed into DSP fpl_stage_2/multiplication_reg_reg.
+DSP Report: register fpl_stage_2/value_og_reg_reg is absorbed into DSP fpl_stage_2/multiplication_reg_reg.
+DSP Report: register fpl_stage_2/multiplication_reg_reg is absorbed into DSP fpl_stage_2/multiplication_reg_reg.
+DSP Report: operator fpl_stage_2/multiplication0 is absorbed into DSP fpl_stage_2/multiplication_reg_reg.
+DSP Report: operator fpl_stage_2/multiplication0 is absorbed into DSP fpl_stage_2/multiplication_reg_reg.
+DSP Report: Generating DSP fpl_stage_2/multiplication0, operation Mode is: A''*B2.
+DSP Report: register fpl_stage_2/multiplication0 is absorbed into DSP fpl_stage_2/multiplication0.
+DSP Report: register fpl_stage_2/multiplication0 is absorbed into DSP fpl_stage_2/multiplication0.
+DSP Report: register fpl_stage_2/multiplication0 is absorbed into DSP fpl_stage_2/multiplication0.
+DSP Report: operator fpl_stage_2/multiplication0 is absorbed into DSP fpl_stage_2/multiplication0.
+DSP Report: operator fpl_stage_2/multiplication0 is absorbed into DSP fpl_stage_2/multiplication0.
+DSP Report: Generating DSP fpl_stage_2/multiplication_reg_reg, operation Mode is: (PCIN>>17)+A''*B2.
+DSP Report: register fpl_stage_2/k_reg_reg is absorbed into DSP fpl_stage_2/multiplication_reg_reg.
+DSP Report: register fpl_stage_2/multiplication_reg_reg is absorbed into DSP fpl_stage_2/multiplication_reg_reg.
+DSP Report: register fpl_stage_2/multiplication_reg_reg is absorbed into DSP fpl_stage_2/multiplication_reg_reg.
+DSP Report: register fpl_stage_2/multiplication_reg_reg is absorbed into DSP fpl_stage_2/multiplication_reg_reg.
+DSP Report: operator fpl_stage_2/multiplication0 is absorbed into DSP fpl_stage_2/multiplication_reg_reg.
+DSP Report: operator fpl_stage_2/multiplication0 is absorbed into DSP fpl_stage_2/multiplication_reg_reg.
+WARNING: [Synth 8-7129] Port format_X[0] in module ATS_main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port format_Y[0] in module ATS_main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ready in module parallel_DAC_controller is either unconnected or has no load
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[47]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[46]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[45]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[44]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[43]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[42]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[41]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[40]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[39]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[38]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[37]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[36]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[35]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[34]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[33]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[32]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[31]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[30]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[29]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[28]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[27]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[26]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[25]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[24]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[23]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[22]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[21]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[20]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[19]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[18]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[17]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[47]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[46]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[45]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[44]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[43]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[42]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[41]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[40]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[39]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[38]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[37]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[36]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[35]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[34]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[33]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[32]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[31]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[30]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[29]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[28]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[27]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[26]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[25]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[24]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[23]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[22]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[21]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[20]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[19]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[18]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[17]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[15]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[14]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[13]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[12]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[11]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[10]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[9]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[8]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[7]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[6]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[5]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[4]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[3]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[2]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[1]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_u/multiplication_reg_reg[0]__0) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_code/multiplication_reg_reg[47]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_code/multiplication_reg_reg[46]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_code/multiplication_reg_reg[45]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_code/multiplication_reg_reg[44]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_code/multiplication_reg_reg[43]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_code/multiplication_reg_reg[42]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_code/multiplication_reg_reg[41]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_code/multiplication_reg_reg[40]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_code/multiplication_reg_reg[39]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_code/multiplication_reg_reg[38]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_code/multiplication_reg_reg[37]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_code/multiplication_reg_reg[36]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_code/multiplication_reg_reg[35]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_code/multiplication_reg_reg[34]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_code/multiplication_reg_reg[33]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_code/multiplication_reg_reg[32]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_code/multiplication_reg_reg[31]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_code/multiplication_reg_reg[30]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_code/multiplication_reg_reg[29]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_code/multiplication_reg_reg[28]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_code/multiplication_reg_reg[27]) is unused and will be removed from module AS2_ATS.
+WARNING: [Synth 8-3332] Sequential element (as2/mult_code/multiplication_reg_reg[26]) is unused and will be removed from module AS2_ATS.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1541.723 ; gain = 655.059
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1543.535 ; gain = 657.246
 ---------------------------------------------------------------------------------
- Sort Area is  multiplication0_0 : 0 0 : 2737 4966 : Used 1 time 0
- Sort Area is  multiplication0_0 : 0 1 : 2229 4966 : Used 1 time 0
- Sort Area is  multiplication0_6 : 0 0 : 2737 4966 : Used 1 time 0
- Sort Area is  multiplication0_6 : 0 1 : 2229 4966 : Used 1 time 0
- Sort Area is  multiplication0_3 : 0 0 : 2176 4080 : Used 1 time 0
- Sort Area is  multiplication0_3 : 0 1 : 1904 4080 : Used 1 time 0
- Sort Area is  multiplication0_7 : 0 0 : 2176 4080 : Used 1 time 0
- Sort Area is  multiplication0_7 : 0 1 : 1904 4080 : Used 1 time 0
+ Sort Area is  fpl_stage_1/multiplication0_c : 0 0 : 2773 5050 : Used 1 time 0
+ Sort Area is  fpl_stage_1/multiplication0_c : 0 1 : 2277 5050 : Used 1 time 0
+ Sort Area is  fpl_stage_2/multiplication0_12 : 0 0 : 2755 5017 : Used 1 time 0
+ Sort Area is  fpl_stage_2/multiplication0_12 : 0 1 : 2262 5017 : Used 1 time 0
+ Sort Area is  mult_code/multiplication0_6 : 0 0 : 2755 5017 : Used 1 time 0
+ Sort Area is  mult_code/multiplication0_6 : 0 1 : 2262 5017 : Used 1 time 0
+ Sort Area is  mult_u/multiplication0_0 : 0 0 : 2737 4981 : Used 1 time 0
+ Sort Area is  mult_u/multiplication0_0 : 0 1 : 2244 4981 : Used 1 time 0
+ Sort Area is  fpl_stage_1/multiplication0_f : 0 0 : 2224 4188 : Used 1 time 0
+ Sort Area is  fpl_stage_1/multiplication0_f : 0 1 : 1964 4188 : Used 1 time 0
+ Sort Area is  fpl_stage_2/multiplication0_13 : 0 0 : 2206 4155 : Used 1 time 0
+ Sort Area is  fpl_stage_2/multiplication0_13 : 0 1 : 1949 4155 : Used 1 time 0
+ Sort Area is  mult_code/multiplication0_9 : 0 0 : 2206 4155 : Used 1 time 0
+ Sort Area is  mult_code/multiplication0_9 : 0 1 : 1949 4155 : Used 1 time 0
+ Sort Area is  mult_u/multiplication0_3 : 0 0 : 2191 4125 : Used 1 time 0
+ Sort Area is  mult_u/multiplication0_3 : 0 1 : 1934 4125 : Used 1 time 0
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 
+Distributed RAM: Preliminary Mapping Report (see note below)
++------------+-------------------+-----------+----------------------+-------------+
+|Module Name | RTL Object        | Inference | Size (Depth x Width) | Primitives  | 
++------------+-------------------+-----------+----------------------+-------------+
+|AS2_ATS     | ATS/fifo/fifo_reg | Implied   | 16 x 32              | RAM32M x 6  | 
++------------+-------------------+-----------+----------------------+-------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
 DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
-+-------------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name        | DSP Mapping     | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+-------------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|fixed_point_linear | A2*B            | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|fixed_point_linear | (PCIN>>17)+A*B  | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
-|fixed_point_linear | A2*B2           | 18     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|fixed_point_linear | (PCIN>>17)+A2*B | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-|fixed_point_linear | A2*B            | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|fixed_point_linear | (PCIN>>17)+A*B  | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
-|fixed_point_linear | A2*B2           | 18     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|fixed_point_linear | (PCIN>>17)+A2*B | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-+-------------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
++------------+--------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping        | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+--------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|top         | A2*B2              | 18     | 15     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|top         | (PCIN>>17)+A2*B2   | 15     | 15     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|top         | A2*B2              | 18     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|top         | (PCIN>>17)+A2*B2   | 18     | 15     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|top         | A2*B''             | 18     | 15     | -      | -      | 48     | 1    | 2    | -    | -    | -     | 0    | 0    | 
+|top         | (PCIN>>17)+A''*B2  | 15     | 15     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 1    | 
+|top         | A''*B2             | 18     | 18     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 0    | 
+|top         | (PCIN>>17)+A''*B2  | 18     | 15     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 1    | 
+|ATS_main    | A''*B''            | 18     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|ATS_main    | (PCIN>>17)+A''*B'' | 15     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|ATS_main    | A''*B''            | 18     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|ATS_main    | (PCIN>>17)+A''*B'' | 18     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|ATS_main    | A2*B''             | 18     | 15     | -      | -      | 48     | 1    | 2    | -    | -    | -     | 0    | 0    | 
+|ATS_main    | (PCIN>>17)+A''*B2  | 15     | 15     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 1    | 
+|ATS_main    | A''*B2             | 18     | 18     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 0    | 
+|ATS_main    | (PCIN>>17)+A''*B2  | 18     | 15     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 1    | 
++------------+--------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
 ---------------------------------------------------------------------------------
@@ -348,19 +550,33 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 1541.723 ; gain = 655.059
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 1543.535 ; gain = 657.246
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 1541.723 ; gain = 655.059
+Finished Timing Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:00:37 . Memory (MB): peak = 1543.535 ; gain = 657.246
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping Report
++------------+-------------------+-----------+----------------------+-------------+
+|Module Name | RTL Object        | Inference | Size (Depth x Width) | Primitives  | 
++------------+-------------------+-----------+----------------------+-------------+
+|AS2_ATS     | ATS/fifo/fifo_reg | Implied   | 16 x 32              | RAM32M x 6  | 
++------------+-------------------+-----------+----------------------+-------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1541.723 ; gain = 655.059
+Finished Technology Mapping : Time (s): cpu = 00:00:37 ; elapsed = 00:00:37 . Memory (MB): peak = 1543.535 ; gain = 657.246
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -378,55 +594,63 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1541.723 ; gain = 655.059
+Finished IO Insertion : Time (s): cpu = 00:00:43 ; elapsed = 00:00:43 . Memory (MB): peak = 1543.535 ; gain = 657.246
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1541.723 ; gain = 655.059
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:43 ; elapsed = 00:00:43 . Memory (MB): peak = 1543.535 ; gain = 657.246
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1541.723 ; gain = 655.059
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:43 ; elapsed = 00:00:43 . Memory (MB): peak = 1543.535 ; gain = 657.246
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1541.723 ; gain = 655.059
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:43 ; elapsed = 00:00:43 . Memory (MB): peak = 1543.535 ; gain = 657.246
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1541.723 ; gain = 655.059
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:43 ; elapsed = 00:00:43 . Memory (MB): peak = 1543.535 ; gain = 657.246
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1541.723 ; gain = 655.059
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:43 ; elapsed = 00:00:43 . Memory (MB): peak = 1543.535 ; gain = 657.246
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
 DSP Final Report (the ' indicates corresponding REG is set)
-+-------------------+--------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name        | DSP Mapping        | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+-------------------+--------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|fixed_point_linear | A'*B''             | 17     | 18     | -      | -      | 48     | 1    | 2    | -    | -    | -     | 0    | 0    | 
-|fixed_point_linear | (PCIN>>17+A''*B')' | 30     | 18     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 1    | 
-|fixed_point_linear | A''*B'             | 17     | 17     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 0    | 
-|fixed_point_linear | (PCIN>>17+A''*B')' | 17     | 18     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 1    | 
-|fixed_point_linear | A'*B'              | 17     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|fixed_point_linear | (PCIN>>17+A'*B')'  | 30     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
-|fixed_point_linear | A'*B'              | 17     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|fixed_point_linear | (PCIN>>17+A*B')'   | 0      | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
-+-------------------+--------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
++------------+---------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping         | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+---------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|ATS_main    | A''*B''             | 17     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|ATS_main    | (PCIN>>17+A''*B'')' | 30     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|ATS_main    | A''*B''             | 17     | 17     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|ATS_main    | (PCIN>>17+A''*B'')' | 17     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|ATS_main    | A'*B''              | 17     | 18     | -      | -      | 48     | 1    | 2    | -    | -    | -     | 0    | 0    | 
+|ATS_main    | (PCIN>>17+A''*B')'  | 30     | 18     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 1    | 
+|ATS_main    | A''*B'              | 17     | 17     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 0    | 
+|ATS_main    | (PCIN>>17+A''*B')'  | 17     | 18     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 1    | 
+|top         | A'*B''              | 17     | 18     | -      | -      | 48     | 1    | 2    | -    | -    | -     | 0    | 0    | 
+|top         | (PCIN>>17+A''*B')'  | 30     | 18     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 1    | 
+|top         | A''*B'              | 17     | 17     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 0    | 
+|top         | (PCIN>>17+A''*B')'  | 17     | 18     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 1    | 
+|top         | A'*B'               | 17     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|top         | (PCIN>>17+A'*B')'   | 30     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|top         | A'*B'               | 17     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|top         | (PCIN>>17+A*B')'    | 0      | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
++------------+---------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 
 Report BlackBoxes: 
@@ -436,50 +660,55 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+--------+------+
-|      |Cell    |Count |
-+------+--------+------+
-|1     |BUFG    |     1|
-|2     |CARRY4  |    60|
-|3     |DSP48E1 |     8|
-|8     |LUT1    |    20|
-|9     |LUT2    |   230|
-|10    |LUT3    |   197|
-|11    |LUT4    |    46|
-|12    |LUT5    |     8|
-|13    |LUT6    |   164|
-|14    |MUXF7   |    64|
-|15    |MUXF8   |    32|
-|16    |FDCE    |   257|
-|17    |FDPE    |     4|
-|18    |FDRE    |   784|
-|19    |IBUF    |   324|
-|20    |OBUF    |    24|
-|21    |OBUFT   |     3|
-+------+--------+------+
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BUFG     |     1|
+|2     |CARRY4   |   120|
+|3     |DSP48E1  |    16|
+|10    |LUT1     |    40|
+|11    |LUT2     |   461|
+|12    |LUT3     |   306|
+|13    |LUT4     |    52|
+|14    |LUT5     |   179|
+|15    |LUT6     |   107|
+|16    |MUXF7    |    32|
+|17    |MUXF8    |    16|
+|18    |RAM32M   |     3|
+|19    |RAM32X1D |     2|
+|20    |FDCE     |   548|
+|21    |FDPE     |     3|
+|22    |FDRE     |   944|
+|23    |FDSE     |     1|
+|24    |IBUF     |   704|
+|25    |OBUF     |    29|
++------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1541.723 ; gain = 655.059
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:43 ; elapsed = 00:00:43 . Memory (MB): peak = 1543.535 ; gain = 657.246
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 162 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:29 ; elapsed = 00:00:40 . Memory (MB): peak = 1541.723 ; gain = 554.320
-Synthesis Optimization Complete : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 1541.723 ; gain = 655.059
+Synthesis finished with 0 errors, 0 critical warnings and 316 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:31 ; elapsed = 00:00:41 . Memory (MB): peak = 1543.535 ; gain = 559.590
+Synthesis Optimization Complete : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 1543.535 ; gain = 657.246
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 1541.723 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 164 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.065 . Memory (MB): peak = 1543.535 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 189 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1541.723 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1543.535 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 5 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 3 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 2 instances
 
-Системе не удается найти указанный путь.
-Synth Design complete | Checksum: cb20c33f
+The system cannot find the path specified.
+Synth Design complete | Checksum: 3917bd85
 INFO: [Common 17-83] Releasing license: Synthesis
-33 Infos, 123 Warnings, 0 Critical Warnings and 0 Errors encountered.
+48 Infos, 153 Warnings, 26 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 1541.723 ; gain = 1081.926
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1541.723 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'C:/Vivado_Projects/DAC_par/DAC_par.runs/synth_1/top.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Oct  7 14:47:17 2025...
+synth_design: Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 1543.535 ; gain = 1085.074
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1543.535 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.runs/synth_1/AS2_ATS.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file AS2_ATS_utilization_synth.rpt -pb AS2_ATS_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Oct 23 13:06:39 2025...
