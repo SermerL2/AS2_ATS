@@ -10,3 +10,4 @@ Datasheet: [AD9777](https://www.farnell.com/datasheets/2253179.pdf)
 ### Algorithm
 Recive coefficients k and b. Then convert wdata 2 times by using formula y = kx + b.  
 Output multiplication connected to fifo and spi module AD9777.
+### !Included new block for dual system
