@@ -1,5 +1,3 @@
-//pipelined y=k * x + b module for fixed point numbers
-
 module fixed_point_linear #(
     parameter INTEGER_W = 16,
     parameter FRACTIONAL_W = 16,

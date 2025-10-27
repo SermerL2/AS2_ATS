@@ -23,8 +23,6 @@ module AS2_ATS #(
     // AS2
     input  logic [DATA_WIDTH-1:0] wdatax,
     input  logic [DATA_WIDTH-1:0] wdatay,
-    input  logic        validx,
-    input  logic        validy,
     
     input  logic [DATA_WIDTH-1:0] kx_u,
     input  logic [DATA_WIDTH-1:0] bx_u,
@@ -38,7 +36,7 @@ module AS2_ATS #(
     input  logic [DATA_WIDTH-1:0] ky_c,
     input  logic [DATA_WIDTH-1:0] by_c,
     
-    output  logic       wready,
+    input  logic [1:0] mode_AS2,
     
     //ATS
     input  logic [DATA_WIDTH-1:0] format_X,
@@ -61,39 +59,50 @@ module AS2_ATS #(
     input  logic [DATA_WIDTH-1:0]      k_u_cd_y,
     input  logic [DATA_WIDTH-1:0]      b_u_cd_y,
     
-    input  mode_t mode,
+    input  mode_t      mode_ATS,
     
-    input  logic [3:0]  valid_i,
+    input  logic       valid_i,
     
-    output logic blank_out,
-    
-
+    output logic blank_out,    
 
     // Parallel DAC interface
+    input  logic sync_exp,
+    input  logic mode_parall,
+    
     output logic sel_1_0,
     output logic sel_1_1,
     output logic sel_2_0,
     output logic sel_2_1,
-    output logic [15:0] data_out
+    output logic sync,
+    output logic [15:0] data_out,
+    
+    // register map signals
+    output logic ATS_rdy,
+    output logic AS2_rdy
     );
     
-    logic AS2_ATS_select;
-    logic valid_i_parallel;
-    logic valid_o_ATS;
-    logic valid_o_AS2;
+    logic [31:0] data_AS2_x_DAC;
+    logic [31:0] data_AS2_y_DAC;
+    logic [31:0] data_ATS_x_DAC;
+    logic [31:0] data_ATS_y_DAC;    
     
-    logic [15:0] data_from_AS2;
-    logic [31:0] data_from_ATS;
-    logic [15:0] data_to_DAC;
+    logic [15:0] data_AS2_x_DAC_t;
+    logic [15:0] data_AS2_y_DAC_t;
+    logic [15:0] data_ATS_x_DAC_t;
+    logic [15:0] data_ATS_y_DAC_t;
     
-    logic ready_i_AS2;
-    logic ready_i_ATS;
+    logic AS2_x_rdy;
+    logic AS2_y_rdy;
+    logic ATS_x_rdy;
+    logic ATS_y_rdy;
     
-    assign valid_i_parallel = AS2_ATS_select ? valid_o_ATS : valid_o_AS2;
-    assign data_to_DAC = AS2_ATS_select ? data_from_ATS[31:16] : data_from_AS2;
+    assign data_AS2_x_DAC_t = data_AS2_x_DAC[31:16];
+    assign data_AS2_y_DAC_t = data_AS2_y_DAC[31:16];
+    assign data_ATS_x_DAC_t = data_ATS_x_DAC[31:16];
+    assign data_ATS_y_DAC_t = data_ATS_y_DAC[31:16];
     
-    assign ready_i_AS2 = ~AS2_ATS_select;
-    assign ready_i_ATS = AS2_ATS_select;
+    assign ATS_rdy = ATS_x_rdy && ATS_y_rdy;
+    assign AS2_rdy = AS2_x_rdy && AS2_y_rdy;
     
     spi_controller spic(
         .in_clk(clk),             
@@ -114,24 +123,27 @@ module AS2_ATS #(
     parallel_DAC_controller pDACc(
         .in_clk(clk),             
         .in_reset(rst_n),           
-        .in_data(data_to_DAC),
-        .valid(valid_i_parallel),              
+        .in_data_AS2_x(data_AS2_x_DAC_t),
+        .in_data_AS2_y(data_AS2_y_DAC_t),
+        .in_data_ATS_x(data_ATS_x_DAC_t),
+        .in_data_ATS_y(data_ATS_y_DAC_t),
+        
+        .sync_exp(sync_exp),
+        .mode(mode_parall),     
                  
         .sel_1_0(sel_1_0),         
         .sel_1_1(sel_1_1),         
         .sel_2_0(sel_2_0),         
         .sel_2_1(sel_2_1),         
-        .AS2_r(AS2_ATS_select),           
+        .sync(sync),     
         .out_data(data_out)         
     );
     
     top as2(
         .clk(clk),
-        .rst_n(rst_n),
+        .rst(rst_n),
         .wdatax(wdatax),
         .wdatay(wdatay),
-        .validx(validx),
-        .validy(validy),
         
         .kx_u(kx_u),
         .bx_u(bx_u),
@@ -145,14 +157,15 @@ module AS2_ATS #(
         .ky_c(ky_c),
         .by_c(by_c),
         
-        .wready(wready),
+        .start(mode_AS2),
         
-        .valid_o(valid_o_AS2),
-        .ready_i(ready_i_AS2),
-        .data_out(data_from_AS2)
+        .c_data_x(data_AS2_x_DAC),
+        .c_data_y(data_AS2_y_DAC),
+        .c_valid_x(AS2_x_rdy),
+        .c_valid_y(AS2_y_rdy)
     );
     
-    ATS_main ATS(
+    ATS_parall ATS(
         .clk(clk),
         .reset_n(rst_n),
         .format_X(format_X),
@@ -175,12 +188,13 @@ module AS2_ATS #(
         .k_u_cd_y(k_u_cd_y),
         .b_u_cd_y(b_u_cd_y),
         
-        .mode(mode),
+        .mode(mode_ATS),
         
         .valid_i(valid_i),
-        .ready_i(ready_i_ATS),
-        .valid_o(valid_o_ATS),
-        .value_to_DAC(data_from_ATS),
+        .valid_o_x(ATS_x_rdy),
+        .valid_o_y(ATS_y_rdy),
+        .value_to_DAC_x(data_ATS_x_DAC),
+        .value_to_DAC_y(data_ATS_y_DAC),
         
         .blank_out(blank_out)
     );

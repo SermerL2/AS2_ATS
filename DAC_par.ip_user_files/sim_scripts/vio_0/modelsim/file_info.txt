@@ -1,0 +1,2 @@
+vio_0.v,verilog,xil_defaultlib,../../../../DAC_par.gen/sources_1/ip/vio_0/sim/vio_0.v,incdir="../../../../DAC_par.gen/sources_1/ip/vio_0/hdl/verilog"incdir="../../../../DAC_par.gen/sources_1/ip/vio_0/hdl"
+glbl.v,Verilog,xil_defaultlib,glbl.v

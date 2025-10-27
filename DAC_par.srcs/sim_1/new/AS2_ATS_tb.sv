@@ -25,8 +25,6 @@ module AS2_ATS_tb;
     // AS2
     logic [DATA_WIDTH-1:0] wdatax;
     logic [DATA_WIDTH-1:0] wdatay;
-    logic        validx;
-    logic        validy;
     
     logic [DATA_WIDTH-1:0] kx_u;
     logic [DATA_WIDTH-1:0] bx_u;
@@ -69,18 +67,25 @@ module AS2_ATS_tb;
         alignment,
         exposure
     } mode_t;
-    mode_t mode;
+    mode_t mode_ATS;
     
-    logic [3:0]  valid_i;
+    logic  valid_i;
     
     logic blank_out;
 
     // Parallel DAC interface
+    logic mode_parall;
+    logic sync_exp;
+    
     logic sel_1_0;
     logic sel_1_1;
     logic sel_2_0;
     logic sel_2_1;
+    logic sync;
     logic [15:0] data_out;
+    
+    logic ATS_rdy;
+    logic AS2_rdy;
 
     // Instantiate DUT
     AS2_ATS #(
@@ -104,8 +109,6 @@ module AS2_ATS_tb;
         // AS2
         .wdatax(wdatax),
         .wdatay(wdatay),
-        .validx(validx),
-        .validy(validy),
         .kx_u(kx_u),
         .bx_u(bx_u),
         .kx_c(kx_c),
@@ -114,7 +117,7 @@ module AS2_ATS_tb;
         .by_u(by_u),
         .ky_c(ky_c),
         .by_c(by_c),
-        .wready(wready),
+        .mode_AS2(2'b01),
         
         // ATS
         .format_X(format_X),
@@ -131,16 +134,23 @@ module AS2_ATS_tb;
         .b_nm_u_y(b_nm_u_y),
         .k_u_cd_y(k_u_cd_y),
         .b_u_cd_y(b_u_cd_y),
-        .mode(mode),
+        .mode_ATS(mode_ATS),
         .valid_i(valid_i),
         .blank_out(blank_out),
         
         // Parallel DAC interface
+        .sync_exp(sync_exp),
+        .mode_parall(mode_parall),
+        
         .sel_1_0(sel_1_0),
         .sel_1_1(sel_1_1),
         .sel_2_0(sel_2_0),
         .sel_2_1(sel_2_1),
-        .data_out(data_out)
+        .sync(sync),
+        .data_out(data_out),
+        
+        .ATS_rdy(ATS_rdy),
+        .AS2_rdy(AS2_rdy)
     );
 
     // Clock generation
@@ -161,12 +171,11 @@ module AS2_ATS_tb;
         valid_spi = 0;
         spi_pkg = 16'h0000;
         select_ss = 3'b000;
+        mode_parall = 0;
         
         // AS2 inputs
         wdatax = 32'h0000_0000;
         wdatay = 32'h0000_0000;
-        validx = 0;
-        validy = 0;
         kx_u = 32'h0000_0000;
         bx_u = 32'h0000_0000;
         kx_c = 32'h0000_0000;
@@ -191,7 +200,7 @@ module AS2_ATS_tb;
         b_nm_u_y = 32'h0000_0000;
         k_u_cd_y = 32'h0000_0000;
         b_u_cd_y = 32'h0000_0000;
-        mode = manual;
+        mode_ATS = manual;
         valid_i = 4'b0000;
         
         // Wait for reset to complete
@@ -199,8 +208,6 @@ module AS2_ATS_tb;
         // AS2 inputs
         wdatax = 32'hD2345603;
         wdatay = 32'hDEA80003; 
-        validx = 1;
-        validy = 1;
         kx_u= 32'h00020001;
         bx_u= 32'h00010001;
         kx_c= 32'h00030001;
@@ -226,21 +233,17 @@ module AS2_ATS_tb;
         b_nm_u_y = 32'h0001_0000;
         k_u_cd_y = 32'h0004_0000;
         b_u_cd_y = 32'h0001_0000;
-        mode = manual;
-        valid_i = 4'b1100;
+        mode_ATS = manual;
+        valid_i = 1;
         
         #10;
         // AS2 inputs
-        validx = 0;
-        validy = 0;
-        valid_i = 4'b0000;
+        valid_i = 0;
         #35;
         #1000;
         // AS2 inputs
         wdatax = 32'h99990111;
         wdatay = 32'h88880171;
-        validx = 1;
-        validy = 1;
         kx_u= 32'h00020002;
         bx_u= 32'h00010002;
         kx_c= 32'h00030002;
@@ -249,28 +252,40 @@ module AS2_ATS_tb;
         by_u= 32'h00019900;
         ky_c= 32'h00039900;
         by_c= 32'h00029900;
+        
+        // ATS inputs
+        format_X = 32'h0001_1100;
+        format_Y = 32'h0001_1100;
+        value_X = 32'h0001_1100;
+        value_Y = 32'h0001_1100;
+        blank_on = 1;
+        blank_off = 0;
+        k_nm_u_x = 32'h0001_0000;
+        b_nm_u_x = 32'h0001_0000;
+        k_u_cd_x = 32'h0002_0000;
+        b_u_cd_x = 32'h0001_0000;
+        k_nm_u_y = 32'h0003_0000;
+        b_nm_u_y = 32'h0001_0000;
+        k_u_cd_y = 32'h0004_0000;
+        b_u_cd_y = 32'h0001_0000;
+        mode_ATS = manual;
+        valid_i = 1;
         #10;
         // AS2 inputs
-        validx = 0;
-        validy = 0;
         #35;
         #20;
+        valid_i = 0;
         #1000;  
         // AS2 inputs
-        validx = 1;
         wdatax = 32'h98765432;
         #10;
-        // AS2 inputs
-        validx = 0; 
         #55;
         #10;
         #300;
         // AS2 inputs
-        validy = 1;  
         wdatay = 32'h12310012;
         #10;
         // AS2 inputs
-        validy = 0;
         #300 
         
         #1000;
