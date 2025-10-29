@@ -70,12 +70,8 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param checkpoint.writeSynthRtdsInDcp 1
-set_param synth.incrementalSynthesisCache C:/Users/Admin/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-3892-DESKTOP-630779O/incrSyn
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg484-1
 
@@ -85,6 +81,7 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.cache/wt [current_project]
 set_property parent.project_path C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.xpr [current_project]
+set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_repo_paths c:/projects/Vivado_Projects/AD9777_with_mult-main/ip_repo/parallel_DAC_lite_1_0 [current_project]
@@ -96,10 +93,10 @@ OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib -sv {
   C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fifo.sv
   C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fifo_1.sv
+  C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/ATS_parall.sv
   C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fixed_point_linear.sv
   C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/parallel_DAC.sv
   C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/parallel_DAC_controller.sv
-  C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/ATS_parall.sv
   C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/signal_delay.sv
   C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/spi_controller.sv
   C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/top.sv
@@ -110,6 +107,12 @@ read_verilog -library xil_defaultlib -sv {
 read_ip -quiet C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/ip/vio_0/vio_0.xci
 set_property used_in_implementation false [get_files -all c:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.gen/sources_1/ip/vio_0/vio_0.xdc]
 set_property used_in_implementation false [get_files -all c:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.gen/sources_1/ip/vio_0/vio_0_ooc.xdc]
+
+read_ip -quiet C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/ip/ila_0/ila_0.xci
+set_property used_in_synthesis false [get_files -all c:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.gen/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc]
+set_property used_in_implementation false [get_files -all c:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.gen/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc]
+set_property used_in_implementation false [get_files -all c:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.gen/sources_1/ip/ila_0/ila_v6_2/constraints/ila.xdc]
+set_property used_in_implementation false [get_files -all c:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.gen/sources_1/ip/ila_0/ila_0_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

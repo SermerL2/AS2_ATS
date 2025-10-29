@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2.2 (win64) Build 4126759 Thu Feb  8 23:53:51 MST 2024
-| Date         : Mon Oct 27 16:55:56 2025
+| Date         : Wed Oct 29 14:39:38 2025
 | Host         : DESKTOP-630779O running 64-bit major release  (build 9200)
 | Command      : report_utilization -file test_wrapper_utilization_synth.rpt -pb test_wrapper_utilization_synth.pb
 | Design       : test_wrapper
@@ -172,6 +172,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | Ref Name | Used |
 +----------+------+
 | vio_0    |    1 |
+| ila_0    |    1 |
 +----------+------+
 
 

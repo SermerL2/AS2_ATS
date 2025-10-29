@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1761573283">
+<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1761737893">
   <File Type="ROUTE-PWR" Name="test_wrapper_power_routed.rpt"/>
   <File Type="PA-TCL" Name="test_wrapper.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="test_wrapper_power_summary_routed.pb"/>
@@ -100,6 +100,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/ATS_parall.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/fixed_point_linear.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -115,13 +122,6 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/parallel_DAC_controller.sv">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/ATS_parall.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -214,4 +214,5 @@
     <Step Id="write_bitstream"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="vio_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ila_0"/>
 </GenRun>

@@ -1,5 +1,6 @@
 `timescale 1ns / 1ps
 
+// модуль объединения систем AS2 и ATS с общим модулем передачи данных на выход ЦАП AD 9777 и его настройки по SPI
 module AS2_ATS #(    
     parameter DATA_WIDTH = 32     
 )(
@@ -96,14 +97,17 @@ module AS2_ATS #(
     logic ATS_x_rdy;
     logic ATS_y_rdy;
     
+    // передача только старших 16 бит как код на ЦАП
     assign data_AS2_x_DAC_t = data_AS2_x_DAC[31:16];
     assign data_AS2_y_DAC_t = data_AS2_y_DAC[31:16];
     assign data_ATS_x_DAC_t = data_ATS_x_DAC[31:16];
     assign data_ATS_y_DAC_t = data_ATS_y_DAC[31:16];
     
+    // сигналы обновления данных на выходе для работы с регистровой картой
     assign ATS_rdy = ATS_x_rdy && ATS_y_rdy;
     assign AS2_rdy = AS2_x_rdy && AS2_y_rdy;
     
+    // модуль управления настройкой AD9777 по SPI
     spi_controller spic(
         .in_clk(clk),             
         .in_reset(rst_n),           
@@ -120,6 +124,7 @@ module AS2_ATS #(
         .out_data_went(out_data_went)       
     );
     
+    // модуль передачи перобразованных данных на соответствующие AD9777
     parallel_DAC_controller pDACc(
         .in_clk(clk),             
         .in_reset(rst_n),           
@@ -139,6 +144,7 @@ module AS2_ATS #(
         .out_data(data_out)         
     );
     
+    // модуль преобразования данных для системы AS2
     top as2(
         .clk(clk),
         .rst(rst_n),
@@ -165,6 +171,7 @@ module AS2_ATS #(
         .c_valid_y(AS2_y_rdy)
     );
     
+    // модуль преобразования данных для системы ATS
     ATS_parall ATS(
         .clk(clk),
         .reset_n(rst_n),

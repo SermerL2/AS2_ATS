@@ -15,7 +15,7 @@ ECHO is off.
 
 Sourcing tcl script 'C:/Xilinx/Vivado/2023.2/scripts/Vivado_init.tcl'
 0 Beta devices matching pattern found, 0 enabled.
-enable_beta_device: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 430.902 ; gain = 160.102
+enable_beta_device: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 431.125 ; gain = 162.953
 source test_wrapper.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'c:/projects/Vivado_Projects/AD9777_with_mult-main/ip_repo/parallel_DAC_lite_1_0'; Can't find the specified path.
@@ -31,37 +31,40 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 5060
+INFO: [Synth 8-7075] Helper process launched with PID 4376
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1333.773 ; gain = 439.953
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1357.844 ; gain = 441.203
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-11241] undeclared symbol 'valid', assumed default net type 'wire' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fifo.sv:29]
 INFO: [Synth 8-11241] undeclared symbol 'pop', assumed default net type 'wire' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fifo_1.sv:36]
 INFO: [Synth 8-11241] undeclared symbol 'push', assumed default net type 'wire' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fifo_1.sv:37]
 INFO: [Synth 8-11241] undeclared symbol 'out_ss', assumed default net type 'wire' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/test_wrapper.sv:108]
 INFO: [Synth 8-6157] synthesizing module 'test_wrapper' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/test_wrapper.sv:23]
-INFO: [Synth 8-6157] synthesizing module 'AS2_ATS' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/AS2_ATS.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'AS2_ATS' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/AS2_ATS.sv:4]
 INFO: [Synth 8-6157] synthesizing module 'spi_controller' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/spi_controller.sv:3]
 INFO: [Synth 8-6155] done synthesizing module 'spi_controller' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/spi_controller.sv:3]
-INFO: [Synth 8-6157] synthesizing module 'parallel_DAC_controller' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/parallel_DAC_controller.sv:8]
-INFO: [Synth 8-6155] done synthesizing module 'parallel_DAC_controller' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/parallel_DAC_controller.sv:8]
-INFO: [Synth 8-6157] synthesizing module 'top' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/top.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'parallel_DAC_controller' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/parallel_DAC_controller.sv:10]
+INFO: [Synth 8-6155] done synthesizing module 'parallel_DAC_controller' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/parallel_DAC_controller.sv:10]
+INFO: [Synth 8-6157] synthesizing module 'top' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/top.sv:4]
 INFO: [Synth 8-6157] synthesizing module 'fixed_point_linear' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fixed_point_linear.sv:1]
 INFO: [Synth 8-6155] done synthesizing module 'fixed_point_linear' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fixed_point_linear.sv:1]
-INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/top.sv:3]
-WARNING: [Synth 8-689] width (32) of port connection 'wdatax' does not match port width (16) of module 'top' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/AS2_ATS.sv:145]
-WARNING: [Synth 8-689] width (32) of port connection 'wdatay' does not match port width (16) of module 'top' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/AS2_ATS.sv:146]
-INFO: [Synth 8-6157] synthesizing module 'ATS_parall' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/ATS_parall.sv:8]
+INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/top.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'ATS_parall' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/ATS_parall.sv:9]
 INFO: [Synth 8-6157] synthesizing module 'fixed_point_linear__parameterized0' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fixed_point_linear.sv:1]
 	Parameter INTEGER_W bound to: 16 - type: integer 
 	Parameter FRACTIONAL_W bound to: 16 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'fixed_point_linear__parameterized0' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fixed_point_linear.sv:1]
-INFO: [Synth 8-6155] done synthesizing module 'ATS_parall' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/ATS_parall.sv:8]
-INFO: [Synth 8-6155] done synthesizing module 'AS2_ATS' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/AS2_ATS.sv:3]
-INFO: [Synth 8-6157] synthesizing module 'vio_0' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.runs/synth_1/.Xil/Vivado-17304-DESKTOP-630779O/realtime/vio_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'vio_0' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.runs/synth_1/.Xil/Vivado-17304-DESKTOP-630779O/realtime/vio_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ATS_parall' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/ATS_parall.sv:9]
+INFO: [Synth 8-6155] done synthesizing module 'AS2_ATS' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/AS2_ATS.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'vio_0' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.runs/synth_1/.Xil/Vivado-8676-DESKTOP-630779O/realtime/vio_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'vio_0' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.runs/synth_1/.Xil/Vivado-8676-DESKTOP-630779O/realtime/vio_0_stub.v:6]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/test_wrapper.sv:223]
+INFO: [Synth 8-6157] synthesizing module 'ila_0' [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.runs/synth_1/.Xil/Vivado-8676-DESKTOP-630779O/realtime/ila_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ila_0' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.runs/synth_1/.Xil/Vivado-8676-DESKTOP-630779O/realtime/ila_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'test_wrapper' (0#1) [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/test_wrapper.sv:23]
 WARNING: [Synth 8-6014] Unused sequential element addition_reg was removed.  [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fixed_point_linear.sv:106]
 WARNING: [Synth 8-6014] Unused sequential element max_positive_reg was removed.  [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fixed_point_linear.sv:108]
@@ -71,57 +74,28 @@ WARNING: [Synth 8-6014] Unused sequential element max_positive_reg was removed. 
 WARNING: [Synth 8-6014] Unused sequential element max_negative_reg was removed.  [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/fixed_point_linear.sv:109]
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'vio_0'. This will prevent further optimization [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/test_wrapper.sv:170]
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'DUT'. This will prevent further optimization [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/test_wrapper.sv:98]
-WARNING: [Synth 8-7129] Port wdatax[31] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[30] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[29] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[28] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[27] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[26] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[25] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[24] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[23] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[22] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[21] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[20] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[19] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[18] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[17] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[16] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[31] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[30] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[29] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[28] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[27] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[26] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[25] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[24] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[23] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[22] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[21] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[20] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[19] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[18] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[17] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[16] in module AS2_ATS is either unconnected or has no load
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'ila_0'. This will prevent further optimization [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/test_wrapper.sv:223]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1446.871 ; gain = 553.051
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1474.629 ; gain = 557.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1446.871 ; gain = 553.051
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1474.629 ; gain = 557.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1446.871 ; gain = 553.051
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1474.629 ; gain = 557.988
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.070 . Memory (MB): peak = 1446.871 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.076 . Memory (MB): peak = 1474.629 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [c:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.gen/sources_1/ip/vio_0/vio_0/vio_0_in_context.xdc] for cell 'vio_0'
 Finished Parsing XDC File [c:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.gen/sources_1/ip/vio_0/vio_0/vio_0_in_context.xdc] for cell 'vio_0'
+Parsing XDC File [c:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.gen/sources_1/ip/ila_0/ila_0/ila_0_in_context.xdc] for cell 'ila_0'
+Finished Parsing XDC File [c:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.gen/sources_1/ip/ila_0/ila_0/ila_0_in_context.xdc] for cell 'ila_0'
 Parsing XDC File [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc]
 WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 33]]'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:362]
 WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 34]]'. [C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/constrs_1/new/XDC.xdc:367]
@@ -132,52 +106,35 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/test_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1549.293 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1581.664 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 The system cannot find the path specified.
-Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.022 . Memory (MB): peak = 1549.293 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 1581.664 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1549.293 ; gain = 655.473
+Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1581.664 ; gain = 665.023
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1549.293 ; gain = 655.473
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1581.664 ; gain = 665.023
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property KEEP_HIERARCHY = SOFT for vio_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for ila_0. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1549.293 ; gain = 655.473
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Preparing Guide Design
----------------------------------------------------------------------------------
-CRITICAL WARNING: [Synth 8-6895] The reference checkpoint C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/utils_1/imports/synth_1/parallel_DAC.dcp is not suitable for use with incremental synthesis for this design. Please regenerate the checkpoint for this design with -incremental_synth switch in the same Vivado session that synth_design has been run. Synthesis will continue with the default flow
----------------------------------------------------------------------------------
-Finished Doing Graph Differ : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1549.293 ; gain = 655.473
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1581.664 ; gain = 665.023
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Preparing Guide Design : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1549.293 ; gain = 655.473
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1581.664 ; gain = 665.023
 ---------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1549.293 ; gain = 655.473
----------------------------------------------------------------------------------
-
-
-Incremental Synthesis Report Summary:
-
-1. Incremental synthesis run: no
-
-   Reason for not running incremental synthesis : 
-
-
-INFO: [Synth 8-7130] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -227,13 +184,11 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-DSP Report: Generating DSP mult_u_x/multiplication0, operation Mode is: A2*B2.
-DSP Report: register mult_u_x/value_og_reg_reg is absorbed into DSP mult_u_x/multiplication0.
+DSP Report: Generating DSP mult_u_x/multiplication0, operation Mode is: A2*B.
 DSP Report: register mult_u_x/multiplication0 is absorbed into DSP mult_u_x/multiplication0.
 DSP Report: operator mult_u_x/multiplication0 is absorbed into DSP mult_u_x/multiplication0.
 DSP Report: operator mult_u_x/multiplication0 is absorbed into DSP mult_u_x/multiplication0.
-DSP Report: Generating DSP mult_u_x/multiplication_reg_reg, operation Mode is: (PCIN>>17)+A2*B.
-DSP Report: register mult_u_x/value_og_reg_reg is absorbed into DSP mult_u_x/multiplication_reg_reg.
+DSP Report: Generating DSP mult_u_x/multiplication_reg_reg, operation Mode is: (PCIN>>17)+A*B.
 DSP Report: register mult_u_x/multiplication_reg_reg is absorbed into DSP mult_u_x/multiplication_reg_reg.
 DSP Report: operator mult_u_x/multiplication0 is absorbed into DSP mult_u_x/multiplication_reg_reg.
 DSP Report: operator mult_u_x/multiplication0 is absorbed into DSP mult_u_x/multiplication_reg_reg.
@@ -271,13 +226,11 @@ DSP Report: register mult_code_x/multiplication_reg_reg is absorbed into DSP mul
 DSP Report: register mult_code_x/multiplication_reg_reg is absorbed into DSP mult_code_x/multiplication_reg_reg.
 DSP Report: operator mult_code_x/multiplication0 is absorbed into DSP mult_code_x/multiplication_reg_reg.
 DSP Report: operator mult_code_x/multiplication0 is absorbed into DSP mult_code_x/multiplication_reg_reg.
-DSP Report: Generating DSP mult_u_y/multiplication0, operation Mode is: A2*B2.
-DSP Report: register mult_u_y/value_og_reg_reg is absorbed into DSP mult_u_y/multiplication0.
+DSP Report: Generating DSP mult_u_y/multiplication0, operation Mode is: A2*B.
 DSP Report: register mult_u_y/multiplication0 is absorbed into DSP mult_u_y/multiplication0.
 DSP Report: operator mult_u_y/multiplication0 is absorbed into DSP mult_u_y/multiplication0.
 DSP Report: operator mult_u_y/multiplication0 is absorbed into DSP mult_u_y/multiplication0.
-DSP Report: Generating DSP mult_u_y/multiplication_reg_reg, operation Mode is: (PCIN>>17)+A2*B.
-DSP Report: register mult_u_y/value_og_reg_reg is absorbed into DSP mult_u_y/multiplication_reg_reg.
+DSP Report: Generating DSP mult_u_y/multiplication_reg_reg, operation Mode is: (PCIN>>17)+A*B.
 DSP Report: register mult_u_y/multiplication_reg_reg is absorbed into DSP mult_u_y/multiplication_reg_reg.
 DSP Report: operator mult_u_y/multiplication0 is absorbed into DSP mult_u_y/multiplication_reg_reg.
 DSP Report: operator mult_u_y/multiplication0 is absorbed into DSP mult_u_y/multiplication_reg_reg.
@@ -403,38 +356,6 @@ DSP Report: register fpl_y_2/multiplication_reg_reg is absorbed into DSP fpl_y_2
 DSP Report: register fpl_y_2/multiplication_reg_reg is absorbed into DSP fpl_y_2/multiplication_reg_reg.
 DSP Report: operator fpl_y_2/multiplication0 is absorbed into DSP fpl_y_2/multiplication_reg_reg.
 DSP Report: operator fpl_y_2/multiplication0 is absorbed into DSP fpl_y_2/multiplication_reg_reg.
-WARNING: [Synth 8-7129] Port wdatax[31] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[30] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[29] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[28] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[27] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[26] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[25] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[24] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[23] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[22] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[21] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[20] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[19] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[18] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[17] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatax[16] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[31] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[30] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[29] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[28] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[27] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[26] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[25] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[24] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[23] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[22] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[21] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[20] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[19] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[18] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[17] in module AS2_ATS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port wdatay[16] in module AS2_ATS is either unconnected or has no load
 WARNING: [Synth 8-3332] Sequential element (as2/mult_u_x/multiplication_reg_reg[47]) is unused and will be removed from module AS2_ATS.
 WARNING: [Synth 8-3332] Sequential element (as2/mult_u_x/multiplication_reg_reg[46]) is unused and will be removed from module AS2_ATS.
 WARNING: [Synth 8-3332] Sequential element (as2/mult_u_x/multiplication_reg_reg[45]) is unused and will be removed from module AS2_ATS.
@@ -537,40 +458,40 @@ WARNING: [Synth 8-3332] Sequential element (as2/mult_code_x/multiplication_reg_r
 WARNING: [Synth 8-3332] Sequential element (as2/mult_code_x/multiplication_reg_reg[41]__0) is unused and will be removed from module AS2_ATS.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1549.293 ; gain = 655.473
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 1581.664 ; gain = 665.023
 ---------------------------------------------------------------------------------
- Sort Area is  fpl_x_2/multiplication0_12 : 0 0 : 2755 5002 : Used 1 time 0
- Sort Area is  fpl_x_2/multiplication0_12 : 0 1 : 2247 5002 : Used 1 time 0
- Sort Area is  fpl_y_2/multiplication0_16 : 0 0 : 2755 5002 : Used 1 time 0
- Sort Area is  fpl_y_2/multiplication0_16 : 0 1 : 2247 5002 : Used 1 time 0
+ Sort Area is  fpl_x_2/multiplication0_14 : 0 0 : 2755 5002 : Used 1 time 0
+ Sort Area is  fpl_x_2/multiplication0_14 : 0 1 : 2247 5002 : Used 1 time 0
+ Sort Area is  fpl_y_2/multiplication0_18 : 0 0 : 2755 5002 : Used 1 time 0
+ Sort Area is  fpl_y_2/multiplication0_18 : 0 1 : 2247 5002 : Used 1 time 0
  Sort Area is  mult_code_x/multiplication0_6 : 0 0 : 2755 5002 : Used 1 time 0
  Sort Area is  mult_code_x/multiplication0_6 : 0 1 : 2247 5002 : Used 1 time 0
  Sort Area is  mult_code_y/multiplication0_e : 0 0 : 2755 5002 : Used 1 time 0
  Sort Area is  mult_code_y/multiplication0_e : 0 1 : 2247 5002 : Used 1 time 0
  Sort Area is  fpl_x_1/multiplication0_10 : 0 0 : 2737 4966 : Used 1 time 0
  Sort Area is  fpl_x_1/multiplication0_10 : 0 1 : 2229 4966 : Used 1 time 0
- Sort Area is  fpl_y_1/multiplication0_14 : 0 0 : 2737 4966 : Used 1 time 0
- Sort Area is  fpl_y_1/multiplication0_14 : 0 1 : 2229 4966 : Used 1 time 0
+ Sort Area is  fpl_y_1/multiplication0_16 : 0 0 : 2737 4966 : Used 1 time 0
+ Sort Area is  fpl_y_1/multiplication0_16 : 0 1 : 2229 4966 : Used 1 time 0
  Sort Area is  mult_u_x/multiplication0_0 : 0 0 : 2737 4966 : Used 1 time 0
  Sort Area is  mult_u_x/multiplication0_0 : 0 1 : 2229 4966 : Used 1 time 0
  Sort Area is  mult_u_y/multiplication0_c : 0 0 : 2737 4966 : Used 1 time 0
  Sort Area is  mult_u_y/multiplication0_c : 0 1 : 2229 4966 : Used 1 time 0
- Sort Area is  fpl_x_2/multiplication0_13 : 0 0 : 2206 4140 : Used 1 time 0
- Sort Area is  fpl_x_2/multiplication0_13 : 0 1 : 1934 4140 : Used 1 time 0
- Sort Area is  fpl_y_2/multiplication0_17 : 0 0 : 2206 4140 : Used 1 time 0
- Sort Area is  fpl_y_2/multiplication0_17 : 0 1 : 1934 4140 : Used 1 time 0
+ Sort Area is  fpl_x_2/multiplication0_15 : 0 0 : 2206 4140 : Used 1 time 0
+ Sort Area is  fpl_x_2/multiplication0_15 : 0 1 : 1934 4140 : Used 1 time 0
+ Sort Area is  fpl_y_2/multiplication0_19 : 0 0 : 2206 4140 : Used 1 time 0
+ Sort Area is  fpl_y_2/multiplication0_19 : 0 1 : 1934 4140 : Used 1 time 0
  Sort Area is  mult_code_x/multiplication0_9 : 0 0 : 2206 4140 : Used 1 time 0
  Sort Area is  mult_code_x/multiplication0_9 : 0 1 : 1934 4140 : Used 1 time 0
  Sort Area is  mult_code_y/multiplication0_f : 0 0 : 2206 4140 : Used 1 time 0
  Sort Area is  mult_code_y/multiplication0_f : 0 1 : 1934 4140 : Used 1 time 0
  Sort Area is  fpl_x_1/multiplication0_11 : 0 0 : 2191 4110 : Used 1 time 0
  Sort Area is  fpl_x_1/multiplication0_11 : 0 1 : 1919 4110 : Used 1 time 0
- Sort Area is  fpl_y_1/multiplication0_15 : 0 0 : 2191 4110 : Used 1 time 0
- Sort Area is  fpl_y_1/multiplication0_15 : 0 1 : 1919 4110 : Used 1 time 0
- Sort Area is  mult_u_x/multiplication0_3 : 0 0 : 2191 4110 : Used 1 time 0
- Sort Area is  mult_u_x/multiplication0_3 : 0 1 : 1919 4110 : Used 1 time 0
- Sort Area is  mult_u_y/multiplication0_d : 0 0 : 2191 4110 : Used 1 time 0
- Sort Area is  mult_u_y/multiplication0_d : 0 1 : 1919 4110 : Used 1 time 0
+ Sort Area is  fpl_y_1/multiplication0_17 : 0 0 : 2191 4110 : Used 1 time 0
+ Sort Area is  fpl_y_1/multiplication0_17 : 0 1 : 1919 4110 : Used 1 time 0
+ Sort Area is  mult_u_x/multiplication0_3 : 0 0 : 2176 4080 : Used 1 time 0
+ Sort Area is  mult_u_x/multiplication0_3 : 0 1 : 1904 4080 : Used 1 time 0
+ Sort Area is  mult_u_y/multiplication0_d : 0 0 : 2176 4080 : Used 1 time 0
+ Sort Area is  mult_u_y/multiplication0_d : 0 1 : 1904 4080 : Used 1 time 0
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
@@ -579,16 +500,16 @@ DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding R
 +------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 |Module Name | DSP Mapping      | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
 +------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|top         | A2*B2            | 18     | 15     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|top         | (PCIN>>17)+A2*B  | 15     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|top         | A2*B             | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|top         | (PCIN>>17)+A*B   | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
 |top         | A2*B2            | 18     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
 |top         | (PCIN>>17)+A2*B  | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 1    | 
 |top         | A2*B''           | 18     | 15     | -      | -      | 48     | 1    | 2    | -    | -    | -     | 0    | 0    | 
 |top         | (PCIN>>17)+A''*B | 15     | 15     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |top         | A''*B2           | 18     | 18     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 0    | 
 |top         | (PCIN>>17)+A''*B | 18     | 15     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 1    | 
-|top         | A2*B2            | 18     | 15     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|top         | (PCIN>>17)+A2*B  | 15     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|top         | A2*B             | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|top         | (PCIN>>17)+A*B   | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
 |top         | A2*B2            | 18     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
 |top         | (PCIN>>17)+A2*B  | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 1    | 
 |top         | A2*B''           | 18     | 15     | -      | -      | 48     | 1    | 2    | -    | -    | -     | 0    | 0    | 
@@ -621,19 +542,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 1549.293 ; gain = 655.473
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 1581.664 ; gain = 665.023
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 1639.871 ; gain = 746.051
+Finished Timing Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 1658.973 ; gain = 742.332
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 1639.871 ; gain = 746.051
+Finished Technology Mapping : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 1658.973 ; gain = 742.332
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -652,37 +573,37 @@ Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-3295] tying undriven pin out_ss_1_inferred:in0 to constant 0
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 1639.871 ; gain = 746.051
+Finished IO Insertion : Time (s): cpu = 00:00:55 ; elapsed = 00:00:58 . Memory (MB): peak = 1658.973 ; gain = 742.332
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 1639.871 ; gain = 746.051
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:55 ; elapsed = 00:00:58 . Memory (MB): peak = 1658.973 ; gain = 742.332
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 1639.871 ; gain = 746.051
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:56 ; elapsed = 00:00:58 . Memory (MB): peak = 1658.973 ; gain = 742.332
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 1639.871 ; gain = 746.051
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:56 ; elapsed = 00:00:58 . Memory (MB): peak = 1658.973 ; gain = 742.332
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 1639.871 ; gain = 746.051
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:56 ; elapsed = 00:00:58 . Memory (MB): peak = 1658.973 ; gain = 742.332
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 1639.871 ; gain = 746.051
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:56 ; elapsed = 00:00:59 . Memory (MB): peak = 1658.973 ; gain = 742.332
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -732,51 +653,52 @@ Report BlackBoxes:
 |      |BlackBox name |Instances |
 +------+--------------+----------+
 |1     |vio_0         |         1|
+|2     |ila_0         |         1|
 +------+--------------+----------+
 
 Report Cell Usage: 
 +------+--------+------+
 |      |Cell    |Count |
 +------+--------+------+
-|1     |vio     |     1|
-|2     |BUFG    |     1|
-|3     |CARRY4  |   384|
-|4     |DSP48E1 |    32|
-|9     |LUT1    |    11|
-|10    |LUT2    |  1549|
-|11    |LUT3    |   207|
-|12    |LUT4    |    23|
-|13    |LUT5    |     6|
-|14    |LUT6    |    92|
-|15    |FDCE    |    52|
-|16    |FDPE    |     3|
-|17    |FDRE    |  1359|
-|18    |IBUF    |     2|
+|1     |ila     |     1|
+|2     |vio     |     1|
+|3     |BUFG    |     1|
+|4     |CARRY4  |   384|
+|5     |DSP48E1 |    32|
+|10    |LUT1    |    11|
+|11    |LUT2    |  1549|
+|12    |LUT3    |   207|
+|13    |LUT4    |    23|
+|14    |LUT5    |     6|
+|15    |LUT6    |    92|
+|16    |FDCE    |    52|
+|17    |FDPE    |     3|
+|18    |FDRE    |  1359|
+|19    |IBUF    |     2|
 +------+--------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 1639.871 ; gain = 746.051
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:56 ; elapsed = 00:00:59 . Memory (MB): peak = 1658.973 ; gain = 742.332
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 1 critical warnings and 530 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:38 ; elapsed = 00:00:48 . Memory (MB): peak = 1639.871 ; gain = 643.629
-Synthesis Optimization Complete : Time (s): cpu = 00:00:50 ; elapsed = 00:00:51 . Memory (MB): peak = 1639.871 ; gain = 746.051
+Synthesis finished with 0 errors, 0 critical warnings and 498 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:43 ; elapsed = 00:00:56 . Memory (MB): peak = 1658.973 ; gain = 635.297
+Synthesis Optimization Complete : Time (s): cpu = 00:00:56 ; elapsed = 00:00:59 . Memory (MB): peak = 1658.973 ; gain = 742.332
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.083 . Memory (MB): peak = 1639.871 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.086 . Memory (MB): peak = 1658.973 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 416 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1639.871 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1658.973 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 The system cannot find the path specified.
-Synth Design complete | Checksum: 9afc0c1b
+Synth Design complete | Checksum: e2131435
 INFO: [Common 17-83] Releasing license: Synthesis
-45 Infos, 180 Warnings, 1 Critical Warnings and 0 Errors encountered.
+51 Infos, 115 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:56 ; elapsed = 00:00:59 . Memory (MB): peak = 1639.871 ; gain = 1168.488
-INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1639.871 ; gain = 0.000
+synth_design: Time (s): cpu = 00:01:03 ; elapsed = 00:01:08 . Memory (MB): peak = 1658.973 ; gain = 1167.387
+Write ShapeDB Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1658.973 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.runs/synth_1/test_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file test_wrapper_utilization_synth.rpt -pb test_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Oct 27 16:55:57 2025...
+INFO: [Common 17-206] Exiting Vivado at Wed Oct 29 14:39:38 2025...

@@ -218,6 +218,15 @@ module test_wrapper #(
         .probe_out29(valid_i),
         .probe_out30(sync_exp),
         .probe_out31(mode_parall)
-        
+    );
+    
+    ila_0 ila_0(
+        .clk(GCLK),
+        .probe0(sel_1_0),
+        .probe1(sel_1_1),
+        .probe2(sel_2_0),
+        .probe3(sel_2_1),
+        .probe4(sync),
+        .probe5(data_out)
     );
 endmodule

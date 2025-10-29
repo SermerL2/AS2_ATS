@@ -1,9 +1,10 @@
 `timescale 1ns / 1ps
 
+// модуль преобразования данных из нм в код ЦАП системы AS2
 module top#(       
     parameter FIFO_DEPTH = 16,
     parameter DATA_WIDTH = 32,
-    parameter DATA_WIDTH_XY = 16,
+    parameter DATA_WIDTH_XY = 32,
     parameter START_NUMBER = 0    
 )(
     input  logic        clk,
@@ -59,7 +60,7 @@ fixed_point_linear mult_u_x (
     .clk(clk),
     .rst_n(rst),
     
-    .value_og({wdatax,16'b0}),
+    .value_og({wdatax}),
     .k(kx_u),
     .b(bx_u),
     .valid_i(wvalid),
@@ -87,7 +88,7 @@ fixed_point_linear mult_u_y (
     .clk(clk),
     .rst_n(rst),
     
-    .value_og({wdatay,16'b0}),
+    .value_og({wdatay}),
     .k(ky_u),
     .b(by_u),
     .valid_i(wvalid),
