@@ -62,10 +62,10 @@ module AS2_ATS_tb;
     logic [DATA_WIDTH-1:0] b_u_cd_y;
     
     typedef enum logic [3:0] {
-        idle,
-        manual,
-        alignment,
-        exposure
+        idle,       // простой системы
+        calibration,
+        alignment,  // режим юстировки
+        exposure    // режим экспонирования
     } mode_t;
     mode_t mode_ATS;
     
@@ -74,7 +74,6 @@ module AS2_ATS_tb;
     logic blank_out;
 
     // Parallel DAC interface
-    logic mode_parall;
     logic sync_exp;
     
     logic sel_1_0;
@@ -84,8 +83,8 @@ module AS2_ATS_tb;
     logic sync;
     logic [15:0] data_out;
     
-    logic ATS_rdy;
-    logic AS2_rdy;
+    logic [15:0] reg_map_calib;
+    logic AS2_ATS_ready_o;
 
     // Instantiate DUT
     AS2_ATS #(
@@ -117,7 +116,6 @@ module AS2_ATS_tb;
         .by_u(by_u),
         .ky_c(ky_c),
         .by_c(by_c),
-        .mode_AS2(2'b01),
         
         // ATS
         .format_X(format_X),
@@ -140,7 +138,6 @@ module AS2_ATS_tb;
         
         // Parallel DAC interface
         .sync_exp(sync_exp),
-        .mode_parall(mode_parall),
         
         .sel_1_0(sel_1_0),
         .sel_1_1(sel_1_1),
@@ -149,8 +146,8 @@ module AS2_ATS_tb;
         .sync(sync),
         .data_out(data_out),
         
-        .ATS_rdy(ATS_rdy),
-        .AS2_rdy(AS2_rdy)
+        .reg_map_calib(reg_map_calib),
+        .AS2_ATS_ready_o(AS2_ATS_ready_o)
     );
 
     // Clock generation
@@ -171,7 +168,6 @@ module AS2_ATS_tb;
         valid_spi = 0;
         spi_pkg = 16'h0000;
         select_ss = 3'b000;
-        mode_parall = 0;
         
         // AS2 inputs
         wdatax = 32'h0000_0000;
@@ -200,12 +196,14 @@ module AS2_ATS_tb;
         b_nm_u_y = 32'h0000_0000;
         k_u_cd_y = 32'h0000_0000;
         b_u_cd_y = 32'h0000_0000;
-        mode_ATS = manual;
-        valid_i = 4'b0000;
+        mode_ATS = idle;
+        valid_i = 0;
         
         // Wait for reset to complete
         #30;
         // AS2 inputs
+        mode_ATS = idle;
+        reg_map_calib = 16'h0808;
         wdatax = 32'hD2345603;
         wdatay = 32'hDEA80003; 
         kx_u= 32'h00020001;
@@ -233,10 +231,90 @@ module AS2_ATS_tb;
         b_nm_u_y = 32'h0001_0000;
         k_u_cd_y = 32'h0004_0000;
         b_u_cd_y = 32'h0001_0000;
-        mode_ATS = manual;
         valid_i = 1;
         
         #10;
+        // AS2 inputs
+        valid_i = 0;
+        #35;
+        #1000;
+        
+        #30;
+        // AS2 inputs
+        mode_ATS = calibration;
+        reg_map_calib = 16'h0808;
+        wdatax = 32'hD2345603;
+        wdatay = 32'hDEA80003; 
+        kx_u= 32'h00020001;
+        bx_u= 32'h00010001;
+        kx_c= 32'h00030001;
+        bx_c= 32'h00020001;
+        ky_u= 32'h00020000;
+        by_u= 32'h00010000;
+        ky_c= 32'h00030000;
+        by_c= 32'h00020000;
+        
+        
+        // ATS inputs
+        format_X = 32'h0001_0000;
+        format_Y = 32'h0001_0000;
+        value_X = 32'h0001_0000;
+        value_Y = 32'h0001_0000;
+        blank_on = 1;
+        blank_off = 0;
+        k_nm_u_x = 32'h0001_0000;
+        b_nm_u_x = 32'h0001_0000;
+        k_u_cd_x = 32'h0002_0000;
+        b_u_cd_x = 32'h0001_0000;
+        k_nm_u_y = 32'h0003_0000;
+        b_nm_u_y = 32'h0001_0000;
+        k_u_cd_y = 32'h0004_0000;
+        b_u_cd_y = 32'h0001_0000;
+        valid_i = 1;
+        
+        wait(AS2_ATS_ready_o == 1);
+        // AS2 inputs
+        valid_i = 0;
+        #35;
+        valid_i = 1;
+        wait(AS2_ATS_ready_o == 1);
+        valid_i = 0;
+        #1000;
+        
+        #30;
+        // AS2 inputs
+        mode_ATS = alignment;
+        reg_map_calib = 16'h0808;
+        wdatax = 32'hD2345603;
+        wdatay = 32'hDEA80003; 
+        kx_u= 32'h00020001;
+        bx_u= 32'h00010001;
+        kx_c= 32'h00030001;
+        bx_c= 32'h00020001;
+        ky_u= 32'h00020000;
+        by_u= 32'h00010000;
+        ky_c= 32'h00030000;
+        by_c= 32'h00020000;
+        
+        
+        // ATS inputs
+        format_X = 32'h0001_0000;
+        format_Y = 32'h0001_0000;
+        value_X = 32'h0001_0000;
+        value_Y = 32'h0001_0000;
+        blank_on = 1;
+        blank_off = 0;
+        k_nm_u_x = 32'h0001_0000;
+        b_nm_u_x = 32'h0001_0000;
+        k_u_cd_x = 32'h0002_0000;
+        b_u_cd_x = 32'h0001_0000;
+        k_nm_u_y = 32'h0003_0000;
+        b_nm_u_y = 32'h0001_0000;
+        k_u_cd_y = 32'h0004_0000;
+        b_u_cd_y = 32'h0001_0000;
+        valid_i = 1;
+        
+        wait(AS2_ATS_ready_o == 1);
         // AS2 inputs
         valid_i = 0;
         #35;
@@ -268,7 +346,7 @@ module AS2_ATS_tb;
         b_nm_u_y = 32'h0001_0000;
         k_u_cd_y = 32'h0004_0000;
         b_u_cd_y = 32'h0001_0000;
-        mode_ATS = manual;
+        mode_ATS = exposure;
         valid_i = 1;
         #10;
         // AS2 inputs

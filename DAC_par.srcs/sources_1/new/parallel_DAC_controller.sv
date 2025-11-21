@@ -1,10 +1,6 @@
 `timescale 1ns / 1ps
 
-// тип режим работы выставлени€ данных
-typedef enum logic [0:0] {
-    alignment_dac = 0,  // юстировка (данные на выходе посто€нно обновл€ютс€ благодар€ переключению sync)
-    exposure_dac = 1    // экспонирование (данные на выходе обновл€ютс€ по синхросигналу с системы AS4M)
-} mode_DAC_t;
+// "subject to change" CTRL+F for parts of code marked for changes
 
 // модуль передачи данных от систем AS2 и ATS на соответствующие ÷јѕы
 module parallel_DAC_controller #(     
@@ -19,8 +15,10 @@ module parallel_DAC_controller #(
     input logic [DATA_WIDTH-1:0] in_data_ATS_x,  // ATS координата X
     input logic [DATA_WIDTH-1:0] in_data_ATS_y,  // ATS координата Y
     
+    input  logic        valid_i,   // 
     input  logic        sync_exp,  // входной сигнал переключени€ sync с AS4M
-    input  mode_DAC_t   mode,      // режим работы
+    input  mode_t       mode,      // режим работы
+    output logic        AS2_ATS_set,
     
     output logic        sel_1_0,  // сигнал передачи данных AS2_x на соответствующие регистры
     output logic        sel_1_1,  // сигнал передачи данных AS2_y на соответствующие регистры
@@ -32,14 +30,39 @@ module parallel_DAC_controller #(
 
     logic [15:0] data;
     logic [2:0] sel_r;  // счетчик дл€ переключени€ между системами и координатами
+    logic allow_proccess;
+    
+    logic             valid_internal;
+    logic             busy;
+    logic             busy_r;
+    
+    assign valid_internal = valid_i && ~busy_r;
+    // управление сигналами busy и busy_r дл€ формировани€ valid_internal
+    always_ff @(posedge in_clk) begin
+        if (~in_reset) begin
+            busy <= 1'b0;
+            busy_r <= 1'b0;
+        end
+        else begin
+            if (valid_i) busy <= 1'b1;
+            else if (~allow_proccess) busy <= 1'b0;
+            else  busy <= 1'b0;
+            if (allow_proccess || valid_i) busy_r <= busy;
+            else busy_r <= 1'b0;
+        end
+    end
     
     // инкрементаци€ и сброс счетчика
     always_ff @(posedge in_clk) begin
         if (!in_reset) begin
             sel_r <= 3'd0;
+            allow_proccess <= 1'b0;
         end else begin
-            if (sel_r > 3'd4) sel_r <= 3'd0;
-            else sel_r <= sel_r + 3'd1;
+            if (valid_internal) allow_proccess <= 1'b1;
+            if (allow_proccess || valid_internal) begin
+                if (sel_r > 3'd4) begin sel_r <= 3'd0; allow_proccess<= 1'b0; end
+                else begin sel_r <= sel_r + 3'd1; end
+            end
         end
     end
 
@@ -64,12 +87,31 @@ module parallel_DAC_controller #(
     end
 
     // логическа€ схема управление сигналами sel и sync
-    assign sel_1_0 = (sel_r == 3'b001);  // при совпадении счетчика с нужным числом переключаетс€ нужный sel
-    assign sel_1_1 = (sel_r == 3'b010);  // при совпадении счетчика с нужным числом переключаетс€ нужный sel
-    assign sel_2_0 = (sel_r == 3'b011);  // при совпадении счетчика с нужным числом переключаетс€ нужный sel
-    assign sel_2_1 = (sel_r == 3'b100);  // при совпадении счетчика с нужным числом переключаетс€ нужный sel
-    assign sync    = mode ? sync_exp : (sel_r == 3'b101);  // в зависимости от режима
-                                                           // при совпадении счетчика с нужным числом переключаетс€ synq
-                                                           // или на sync прокидываетс€ сигнал с AS4M
+    // в зависимости от режима при совпадении счетчика с нужным числом переключаетс€ synq
+    // или на sync прокидываетс€ сигнал с AS4M
+    // при совпадении счетчика с нужным числом переключаетс€ нужный sel
+    always_comb begin
+        case(mode)
+            idle: begin
+                sel_1_0 = 1'b0;
+                sel_1_1 = 1'b0;
+                sel_2_0 = 1'b0;
+                sel_2_1 = 1'b0;
+                AS2_ATS_set = 1'b0;
+                sync = 1'b0; 
+            end
+            calibration, alignment: begin
+                sel_1_0 = (sel_r == 3'b001);
+                sel_1_1 = (sel_r == 3'b010);
+                sel_2_0 = (sel_r == 3'b011);
+                sel_2_1 = (sel_r == 3'b100);
+                AS2_ATS_set = (sel_r == 3'b101);
+                sync = (sel_r == 3'b101);
+            end
+            exposure: begin
+                // this will be a subject to change
+            end
+        endcase
+    end
 
 endmodule

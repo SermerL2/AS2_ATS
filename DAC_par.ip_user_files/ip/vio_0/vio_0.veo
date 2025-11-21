@@ -71,7 +71,6 @@ vio_0 your_instance_name (
   .probe_in12(probe_in12),    // input wire [0 : 0] probe_in12
   .probe_in13(probe_in13),    // input wire [15 : 0] probe_in13
   .probe_in14(probe_in14),    // input wire [0 : 0] probe_in14
-  .probe_in15(probe_in15),    // input wire [0 : 0] probe_in15
   .probe_out0(probe_out0),    // output wire [0 : 0] probe_out0
   .probe_out1(probe_out1),    // output wire [15 : 0] probe_out1
   .probe_out2(probe_out2),    // output wire [2 : 0] probe_out2
@@ -85,7 +84,7 @@ vio_0 your_instance_name (
   .probe_out10(probe_out10),  // output wire [31 : 0] probe_out10
   .probe_out11(probe_out11),  // output wire [31 : 0] probe_out11
   .probe_out12(probe_out12),  // output wire [31 : 0] probe_out12
-  .probe_out13(probe_out13),  // output wire [1 : 0] probe_out13
+  .probe_out13(probe_out13),  // output wire [15 : 0] probe_out13
   .probe_out14(probe_out14),  // output wire [31 : 0] probe_out14
   .probe_out15(probe_out15),  // output wire [31 : 0] probe_out15
   .probe_out16(probe_out16),  // output wire [31 : 0] probe_out16
@@ -102,8 +101,7 @@ vio_0 your_instance_name (
   .probe_out27(probe_out27),  // output wire [31 : 0] probe_out27
   .probe_out28(probe_out28),  // output wire [3 : 0] probe_out28
   .probe_out29(probe_out29),  // output wire [0 : 0] probe_out29
-  .probe_out30(probe_out30),  // output wire [0 : 0] probe_out30
-  .probe_out31(probe_out31)  // output wire [0 : 0] probe_out31
+  .probe_out30(probe_out30)  // output wire [0 : 0] probe_out30
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------
 

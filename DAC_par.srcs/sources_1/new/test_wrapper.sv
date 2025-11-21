@@ -52,9 +52,7 @@ module test_wrapper #(
     logic [DATA_WIDTH-1:0] by_u; 
                             
     logic [DATA_WIDTH-1:0] ky_c; 
-    logic [DATA_WIDTH-1:0] by_c; 
-                             
-    logic [1:0] mode_AS2;    
+    logic [DATA_WIDTH-1:0] by_c;  
     
     logic [DATA_WIDTH-1:0] format_X;
     logic [DATA_WIDTH-1:0] format_Y;     
@@ -83,7 +81,6 @@ module test_wrapper #(
     logic blank_out;           
     
     logic sync_exp;
-    logic mode_parall;   
                      
     logic sel_1_0;   
     logic sel_1_1;       
@@ -92,8 +89,9 @@ module test_wrapper #(
     logic sync;       
     logic [15:0] data_out;
                           
-    logic ATS_rdy;
-    logic AS2_rdy;             
+    logic [15:0] reg_map_calib;
+    logic AS2_ATS_ready_o;
+        
 
     AS2_ATS DUT(
         .clk(GCLK),          
@@ -126,8 +124,6 @@ module test_wrapper #(
         .ky_c(ky_c),  
         .by_c(by_c),  
         
-        .mode_AS2(mode_AS2),
-        
         .format_X(format_X),
         .format_Y(format_Y),
         .value_X(value_X), 
@@ -153,8 +149,7 @@ module test_wrapper #(
         .valid_i(valid_i), 
         .blank_out(blank_out),
         
-        .sync_exp(sync_exp),       
-        .mode_parall(mode_parall),    
+        .sync_exp(sync_exp),         
            
         .sel_1_0(sel_1_0),        
         .sel_1_1(sel_1_1),        
@@ -163,8 +158,8 @@ module test_wrapper #(
         .sync(sync),           
         .data_out(data_out),
         
-        .ATS_rdy(ATS_rdy),        
-        .AS2_rdy(AS2_rdy)           
+        .reg_map_calib(reg_map_calib),        
+        .AS2_ATS_ready_o(AS2_ATS_ready_o)           
     );
     
     vio_0 vio_0(
@@ -183,8 +178,7 @@ module test_wrapper #(
         .probe_in11(sel_2_1),
         .probe_in12(sync),
         .probe_in13(data_out),
-        .probe_in14(ATS_rdy),
-        .probe_in15(AS2_rdy),  
+        .probe_in14(AS2_ATS_ready_o),  // update
         
         .probe_out0(valid_spi),
         .probe_out1(spi_pkg),
@@ -199,7 +193,7 @@ module test_wrapper #(
         .probe_out10(by_u),
         .probe_out11(ky_c),
         .probe_out12(by_c),
-        .probe_out13(mode_AS2),
+        .probe_out13(reg_map_calib), // update
         .probe_out14(format_X),
         .probe_out15(format_Y),
         .probe_out16(value_X),
@@ -216,8 +210,7 @@ module test_wrapper #(
         .probe_out27(b_u_cd_y),
         .probe_out28(mode_ATS),
         .probe_out29(valid_i),
-        .probe_out30(sync_exp),
-        .probe_out31(mode_parall)
+        .probe_out30(sync_exp)
     );
     
     ila_0 ila_0(

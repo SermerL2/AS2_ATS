@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="AS2_ATS_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="AS2_ATS_tb" />
+            <top_module name="\$unit_fifo_sv_3228470388 " />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="7.840001 us"></ZoomEndTime>
+      <Cursor1Time time="3.565000 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="189"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="38" />
+   <wvobject fp_name="/AS2_ATS_tb/dut/mode_ATS" type="array">
+      <obj_property name="ElementShortName">mode_ATS[3:0]</obj_property>
+      <obj_property name="ObjectShortName">mode_ATS[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/reset_n" type="logic">
+      <obj_property name="ElementShortName">reset_n</obj_property>
+      <obj_property name="ObjectShortName">reset_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/format_X" type="array">
+      <obj_property name="ElementShortName">format_X[31:0]</obj_property>
+      <obj_property name="ObjectShortName">format_X[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/format_Y" type="array">
+      <obj_property name="ElementShortName">format_Y[31:0]</obj_property>
+      <obj_property name="ObjectShortName">format_Y[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/value_X" type="array">
+      <obj_property name="ElementShortName">value_X[31:0]</obj_property>
+      <obj_property name="ObjectShortName">value_X[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/value_Y" type="array">
+      <obj_property name="ElementShortName">value_Y[31:0]</obj_property>
+      <obj_property name="ObjectShortName">value_Y[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/blank_on" type="logic">
+      <obj_property name="ElementShortName">blank_on</obj_property>
+      <obj_property name="ObjectShortName">blank_on</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/blank_off" type="logic">
+      <obj_property name="ElementShortName">blank_off</obj_property>
+      <obj_property name="ObjectShortName">blank_off</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/k_nm_u_x" type="array">
+      <obj_property name="ElementShortName">k_nm_u_x[31:0]</obj_property>
+      <obj_property name="ObjectShortName">k_nm_u_x[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/b_nm_u_x" type="array">
+      <obj_property name="ElementShortName">b_nm_u_x[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b_nm_u_x[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/k_u_cd_x" type="array">
+      <obj_property name="ElementShortName">k_u_cd_x[31:0]</obj_property>
+      <obj_property name="ObjectShortName">k_u_cd_x[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/b_u_cd_x" type="array">
+      <obj_property name="ElementShortName">b_u_cd_x[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b_u_cd_x[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/k_nm_u_y" type="array">
+      <obj_property name="ElementShortName">k_nm_u_y[31:0]</obj_property>
+      <obj_property name="ObjectShortName">k_nm_u_y[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/b_nm_u_y" type="array">
+      <obj_property name="ElementShortName">b_nm_u_y[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b_nm_u_y[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/k_u_cd_y" type="array">
+      <obj_property name="ElementShortName">k_u_cd_y[31:0]</obj_property>
+      <obj_property name="ObjectShortName">k_u_cd_y[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/b_u_cd_y" type="array">
+      <obj_property name="ElementShortName">b_u_cd_y[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b_u_cd_y[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/mode" type="array">
+      <obj_property name="ElementShortName">mode[3:0]</obj_property>
+      <obj_property name="ObjectShortName">mode[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/valid_i" type="logic">
+      <obj_property name="ElementShortName">valid_i</obj_property>
+      <obj_property name="ObjectShortName">valid_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/valid_o_x" type="logic">
+      <obj_property name="ElementShortName">valid_o_x</obj_property>
+      <obj_property name="ObjectShortName">valid_o_x</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/valid_o_y" type="logic">
+      <obj_property name="ElementShortName">valid_o_y</obj_property>
+      <obj_property name="ObjectShortName">valid_o_y</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/value_to_DAC_x" type="array">
+      <obj_property name="ElementShortName">value_to_DAC_x[31:0]</obj_property>
+      <obj_property name="ObjectShortName">value_to_DAC_x[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/value_to_DAC_y" type="array">
+      <obj_property name="ElementShortName">value_to_DAC_y[31:0]</obj_property>
+      <obj_property name="ObjectShortName">value_to_DAC_y[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/blank_out" type="logic">
+      <obj_property name="ElementShortName">blank_out</obj_property>
+      <obj_property name="ObjectShortName">blank_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/x_in" type="array">
+      <obj_property name="ElementShortName">x_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">x_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/y_in" type="array">
+      <obj_property name="ElementShortName">y_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">y_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/x_stage_1" type="array">
+      <obj_property name="ElementShortName">x_stage_1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">x_stage_1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/y_stage_1" type="array">
+      <obj_property name="ElementShortName">y_stage_1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">y_stage_1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/ready_st2_x" type="logic">
+      <obj_property name="ElementShortName">ready_st2_x</obj_property>
+      <obj_property name="ObjectShortName">ready_st2_x</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/ready_st2_y" type="logic">
+      <obj_property name="ElementShortName">ready_st2_y</obj_property>
+      <obj_property name="ObjectShortName">ready_st2_y</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/valid_o_x_st1" type="logic">
+      <obj_property name="ElementShortName">valid_o_x_st1</obj_property>
+      <obj_property name="ObjectShortName">valid_o_x_st1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/valid_o_y_st1" type="logic">
+      <obj_property name="ElementShortName">valid_o_y_st1</obj_property>
+      <obj_property name="ObjectShortName">valid_o_y_st1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/valid_o_x_st2" type="logic">
+      <obj_property name="ElementShortName">valid_o_x_st2</obj_property>
+      <obj_property name="ObjectShortName">valid_o_x_st2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/valid_o_y_st2" type="logic">
+      <obj_property name="ElementShortName">valid_o_y_st2</obj_property>
+      <obj_property name="ObjectShortName">valid_o_y_st2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/valid_internal" type="logic">
+      <obj_property name="ElementShortName">valid_internal</obj_property>
+      <obj_property name="ObjectShortName">valid_internal</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/busy" type="logic">
+      <obj_property name="ElementShortName">busy</obj_property>
+      <obj_property name="ObjectShortName">busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/busy_r" type="logic">
+      <obj_property name="ElementShortName">busy_r</obj_property>
+      <obj_property name="ObjectShortName">busy_r</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AS2_ATS_tb/dut/ATS/WIDTH" type="array">
+      <obj_property name="ElementShortName">WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WIDTH[31:0]</obj_property>
+   </wvobject>
+</wave_config>

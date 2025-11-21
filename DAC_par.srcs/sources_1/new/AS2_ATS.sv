@@ -1,5 +1,7 @@
 `timescale 1ns / 1ps
 
+// "subject to change" CTRL+F for parts of code marked for changes
+
 // модуль объединения систем AS2 и ATS с общим модулем передачи данных на выход ЦАП AD 9777 и его настройки по SPI
 module AS2_ATS #(    
     parameter DATA_WIDTH = 32     
@@ -37,8 +39,6 @@ module AS2_ATS #(
     input  logic [DATA_WIDTH-1:0] ky_c,
     input  logic [DATA_WIDTH-1:0] by_c,
     
-    input  logic [1:0] mode_AS2,
-    
     //ATS
     input  logic [DATA_WIDTH-1:0] format_X,
     input  logic [DATA_WIDTH-1:0] format_Y,
@@ -68,7 +68,6 @@ module AS2_ATS #(
 
     // Parallel DAC interface
     input  logic sync_exp,
-    input  logic mode_parall,
     
     output logic sel_1_0,
     output logic sel_1_1,
@@ -77,9 +76,10 @@ module AS2_ATS #(
     output logic sync,
     output logic [15:0] data_out,
     
-    // register map signals
-    output logic ATS_rdy,
-    output logic AS2_rdy
+    // calibration register access
+    input  logic [15:0] reg_map_calib,
+    
+    output logic AS2_ATS_ready_o
     );
     
     logic [31:0] data_AS2_x_DAC;
@@ -97,15 +97,40 @@ module AS2_ATS #(
     logic ATS_x_rdy;
     logic ATS_y_rdy;
     
-    // передача только старших 16 бит как код на ЦАП
-    assign data_AS2_x_DAC_t = data_AS2_x_DAC[31:16];
-    assign data_AS2_y_DAC_t = data_AS2_y_DAC[31:16];
-    assign data_ATS_x_DAC_t = data_ATS_x_DAC[31:16];
-    assign data_ATS_y_DAC_t = data_ATS_y_DAC[31:16];
+    logic mult_valid_o;
+    logic mult_valid_i;  
     
-    // сигналы обновления данных на выходе для работы с регистровой картой
-    assign ATS_rdy = ATS_x_rdy && ATS_y_rdy;
-    assign AS2_rdy = AS2_x_rdy && AS2_y_rdy;
+    // передача только старших 16 бит как код на ЦАП или передача 16 бит с Reg MAP
+    always_comb begin
+        case(mode_ATS)
+            calibration: begin
+                data_AS2_x_DAC_t = reg_map_calib;
+                data_AS2_y_DAC_t = reg_map_calib;
+                data_ATS_x_DAC_t = reg_map_calib;
+                data_ATS_y_DAC_t = reg_map_calib;
+                mult_valid_o = valid_i; // сигнал готовности данных при калибровке об обновллении данных на входе для передачи на ЦАП
+                mult_valid_i = 1'b0;
+            end
+            alignment, exposure: begin  // exposure is subject to change
+                data_AS2_x_DAC_t = data_AS2_x_DAC[31:16];
+                data_AS2_y_DAC_t = data_AS2_y_DAC[31:16];
+                data_ATS_x_DAC_t = data_ATS_x_DAC[31:16];
+                data_ATS_y_DAC_t = data_ATS_y_DAC[31:16];
+                mult_valid_o = ATS_x_rdy || ATS_y_rdy || AS2_x_rdy || AS2_y_rdy; // сигнал готовности данных на выходе умножителя для передачи на ЦАП
+                mult_valid_i = valid_i;
+            end
+            default: begin
+                data_AS2_x_DAC_t = 16'b0;
+                data_AS2_y_DAC_t = 16'b0;
+                data_ATS_x_DAC_t = 16'b0;
+                data_ATS_y_DAC_t = 16'b0;            
+                mult_valid_o = 1'b0;
+                mult_valid_i = 1'b0;
+            end
+        endcase
+    end
+    
+    
     
     // модуль управления настройкой AD9777 по SPI
     spi_controller spic(
@@ -133,8 +158,10 @@ module AS2_ATS #(
         .in_data_ATS_x(data_ATS_x_DAC_t),
         .in_data_ATS_y(data_ATS_y_DAC_t),
         
+        .valid_i(mult_valid_o),
         .sync_exp(sync_exp),
-        .mode(mode_parall),     
+        .mode(mode_ATS),
+        .AS2_ATS_set(AS2_ATS_ready_o),   
                  
         .sel_1_0(sel_1_0),         
         .sel_1_1(sel_1_1),         
@@ -163,7 +190,7 @@ module AS2_ATS #(
         .ky_c(ky_c),
         .by_c(by_c),
         
-        .start(mode_AS2),
+        .start({1'b0, mult_valid_i}),
         
         .c_data_x(data_AS2_x_DAC),
         .c_data_y(data_AS2_y_DAC),
@@ -197,7 +224,7 @@ module AS2_ATS #(
         
         .mode(mode_ATS),
         
-        .valid_i(valid_i),
+        .valid_i(mult_valid_i),
         .valid_o_x(ATS_x_rdy),
         .valid_o_y(ATS_y_rdy),
         .value_to_DAC_x(data_ATS_x_DAC),

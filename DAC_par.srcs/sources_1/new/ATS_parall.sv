@@ -1,6 +1,7 @@
 // тип режим работы
 typedef enum logic [3:0] {
     idle,       // простой системы
+    calibration,
     alignment,  // режим юстировки
     exposure    // режим экспонирования
 } mode_t;       
