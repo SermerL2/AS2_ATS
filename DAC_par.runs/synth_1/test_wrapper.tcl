@@ -71,7 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param checkpoint.writeSynthRtdsInDcp 1
-set_param chipscope.maxJobs 2
+set_param synth.incrementalSynthesisCache C:/Users/Admin/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-7788-DESKTOP-630779O/incrSyn
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 set_msg_config -id {Synth 8-256} -limit 10000
@@ -107,6 +107,8 @@ read_verilog -library xil_defaultlib -sv {
   C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/true_dual_port.sv
   C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/AS2_ATS.sv
   C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/test_wrapper.sv
+  C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/parallel_DAC_common.sv
+  C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/new/parallel_DAC_assembly.sv
 }
 read_ip -quiet C:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.srcs/sources_1/ip/vio_0/vio_0.xci
 set_property used_in_implementation false [get_files -all c:/projects/Vivado_Projects/AD9777_with_mult-main/AD9777_with_mult-main/DAC_par.gen/sources_1/ip/vio_0/vio_0.xdc]

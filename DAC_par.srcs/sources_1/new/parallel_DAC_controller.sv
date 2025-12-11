@@ -4,7 +4,8 @@
 
 // модуль передачи данных от систем AS2 и ATS на соответствующие ЦАПы
 module parallel_DAC_controller #(     
-    parameter DATA_WIDTH = 16    // ЦАП AD9777 является параллельным и 16 битным на канал
+    parameter DATA_WIDTH = 16,    // ЦАП AD9777 является параллельным и 16 битным на канал
+    parameter CLK_DIV = 1
 )(
     input logic      in_clk,
     input logic      in_reset,
@@ -90,7 +91,7 @@ module parallel_DAC_controller #(
     // в зависимости от режима при совпадении счетчика с нужным числом переключается synq
     // или на sync прокидывается сигнал с AS4M
     // при совпадении счетчика с нужным числом переключается нужный sel
-    always_comb begin
+    always_ff @(negedge in_clk) begin
         case(mode)
             idle: begin
                 sel_1_0 = 1'b0;

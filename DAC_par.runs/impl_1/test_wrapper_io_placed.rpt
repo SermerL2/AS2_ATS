@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2023.2.2 (win64) Build 4126759 Thu Feb  8 23:53:51 MST 2024
-| Date                      : Fri Nov 21 14:15:54 2025
+| Date                      : Wed Dec 10 16:41:54 2025
 | Host                      : DESKTOP-630779O running 64-bit major release  (build 9200)
 | Command                   : report_io -file test_wrapper_io_placed.rpt
 | Design                    : test_wrapper

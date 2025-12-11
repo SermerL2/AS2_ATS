@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2.2 (win64) Build 4126759 Thu Feb  8 23:53:51 MST 2024
-| Date         : Fri Nov 21 14:16:47 2025
+| Date         : Wed Dec 10 16:42:47 2025
 | Host         : DESKTOP-630779O running 64-bit major release  (build 9200)
 | Command      : report_methodology -file test_wrapper_methodology_drc_routed.rpt -pb test_wrapper_methodology_drc_routed.pb -rpx test_wrapper_methodology_drc_routed.rpx
 | Design       : test_wrapper
@@ -23,14 +23,14 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 43
+             Violations found: 42
 +-----------+----------+--------------------------------+------------+
 | Rule      | Severity | Description                    | Violations |
 +-----------+----------+--------------------------------+------------+
 | LUTAR-1   | Warning  | LUT drives async reset alert   | 4          |
 | SYNTH-10  | Warning  | Wide multiplier                | 32         |
 | TIMING-18 | Warning  | Missing input or output delay  | 1          |
-| TIMING-20 | Warning  | Non-clocked latch              | 5          |
+| TIMING-20 | Warning  | Non-clocked latch              | 4          |
 | LATCH-1   | Advisory | Existing latches in the design | 1          |
 +-----------+----------+--------------------------------+------------+
 
@@ -231,32 +231,27 @@ Related violations: <none>
 
 TIMING-20#1 Warning
 Non-clocked latch  
-The latch DUT/pDACc/AS2_ATS_set_reg cannot be properly analyzed as its control pin DUT/pDACc/AS2_ATS_set_reg/G is not reached by a timing clock
+The latch DUT/pDACc/AS2/clk_a_0_reg cannot be properly analyzed as its control pin DUT/pDACc/AS2/clk_a_0_reg/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#2 Warning
 Non-clocked latch  
-The latch DUT/pDACc/sel_1_0_reg cannot be properly analyzed as its control pin DUT/pDACc/sel_1_0_reg/G is not reached by a timing clock
+The latch DUT/pDACc/AS2/clk_a_1_reg cannot be properly analyzed as its control pin DUT/pDACc/AS2/clk_a_1_reg/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#3 Warning
 Non-clocked latch  
-The latch DUT/pDACc/sel_1_1_reg cannot be properly analyzed as its control pin DUT/pDACc/sel_1_1_reg/G is not reached by a timing clock
+The latch DUT/pDACc/ATS/clk_a_0_reg cannot be properly analyzed as its control pin DUT/pDACc/ATS/clk_a_0_reg/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#4 Warning
 Non-clocked latch  
-The latch DUT/pDACc/sel_2_0_reg cannot be properly analyzed as its control pin DUT/pDACc/sel_2_0_reg/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#5 Warning
-Non-clocked latch  
-The latch DUT/pDACc/sel_2_1_reg cannot be properly analyzed as its control pin DUT/pDACc/sel_2_1_reg/G is not reached by a timing clock
+The latch DUT/pDACc/ATS/clk_a_1_reg cannot be properly analyzed as its control pin DUT/pDACc/ATS/clk_a_1_reg/G is not reached by a timing clock
 Related violations: <none>
 
 LATCH-1#1 Advisory
 Existing latches in the design  
-There are 5 latches found in the design. Inferred latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
+There are 4 latches found in the design. Inferred latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
 Related violations: <none>
 
 

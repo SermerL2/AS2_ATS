@@ -150,9 +150,9 @@ module AS2_ATS #(
     );
     
     // модуль передачи перобразованных данных на соответствующие AD9777
-    parallel_DAC_controller pDACc(
-        .in_clk(clk),             
-        .in_reset(rst_n),           
+    parallel_DAC_assembly pDACc(
+        .clk_in(clk),             
+        .rst_n(rst_n),           
         .in_data_AS2_x(data_AS2_x_DAC_t),
         .in_data_AS2_y(data_AS2_y_DAC_t),
         .in_data_ATS_x(data_ATS_x_DAC_t),
@@ -163,10 +163,10 @@ module AS2_ATS #(
         .mode(mode_ATS),
         .AS2_ATS_set(AS2_ATS_ready_o),   
                  
-        .sel_1_0(sel_1_0),         
-        .sel_1_1(sel_1_1),         
-        .sel_2_0(sel_2_0),         
-        .sel_2_1(sel_2_1),         
+        .clk_1_0(sel_1_0),         
+        .clk_1_1(sel_1_1),         
+        .clk_2_0(sel_2_0),         
+        .clk_2_1(sel_2_1),         
         .sync(sync),     
         .out_data(data_out)         
     );
